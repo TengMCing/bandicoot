@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # bandicoot
 
 <!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/TengMCing/bandicoot/branch/master/graph/badge.svg)](https://app.codecov.io/gh/TengMCing/bandicoot?branch=master)
 <!-- badges: end -->
 
 The goal of bandicoot is to ...
