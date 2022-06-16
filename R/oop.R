@@ -133,7 +133,7 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
   return(env)
 }
 
-# print.bandicoot_oop --------------------------------------------------------
+# print.bandicoot_oop -----------------------------------------------------
 
 #' S3 method of printing `bandicoot_oop` object
 #'
@@ -309,7 +309,7 @@ copy_attr <- function(env, ..., avoid = c("..method_env..", "..init_call..")) {
 #'
 #' TEST <- new_class(class_name = "TEST")
 #'
-#' register(TEST, ..str.. = function() "test")
+#' register_method(TEST, ..str.. = function() "test")
 #'
 #' test <- TEST$instantiate(dist = "uniform", prm = list(a = 1, b = 2))
 #' test$..str..()
@@ -455,7 +455,6 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 #' @param import_base Boolean. Whether or not to import BASE class.
 #' @param import_rand_var Boolean. Whether or not to import RAND_VAR classes.
 #' @param import_closed_form Boolean. Whether or not to import CLOSED_FORM class.
-#' @param import_vi_model Boolean. Whether or not to import VI_MODEL classes.
 #' @return No return value, called for side effects.
 #'
 #' @export
@@ -465,15 +464,13 @@ import_bandicoot <- function(env = parent.frame(),
                           import_oop = TRUE,
                           import_base = TRUE,
                           import_rand_var = FALSE,
-                          import_closed_form = FALSE,
-                          import_vi_model = FALSE) {
+                          import_closed_form = FALSE) {
   final_list <- list()
 
   if (import_oop) final_list <- append(final_list, oop_dependencies)
   if (import_base) final_list <- append(final_list, base_dependencies)
   if (import_rand_var) final_list <- append(final_list, rand_var_dependencies)
   if (import_closed_form) final_list <- append(final_list, closed_form_dependencies)
-  if (import_vi_model) final_list <- append(final_list, vi_model_dependencies)
 
   if (package) {
     do.call(bandicoot::define_pkg_fn, append(list(pkg = "bandicoot"), final_list),
