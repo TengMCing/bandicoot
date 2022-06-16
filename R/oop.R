@@ -357,9 +357,9 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
     # Copy all the methods and attributes from the class/instance
     # except the container, the instantiate method, init_call
     bandicoot::copy_attr(env, self, avoid = c("..method_env..",
-                                           "instantiate",
-                                           "..init_call..",
-                                           "..instantiated.."))
+                                              "instantiate",
+                                              "..init_call..",
+                                              "..instantiated.."))
 
     # Set the `init_call`
     env$..init_call.. <- init_call
@@ -429,7 +429,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 # nocov end
 
 
-#' Load functions from the bandicoot into target environment or search path
+#' Load functions from the bandicoot into target environment
 #'
 #' This function is critical when other packages want to use the bandicoot OOP
 #' system. Since this OOP system is based on environment, any instance will only
@@ -441,44 +441,24 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 #' using the package name directly inside the method body like
 #' `this_method <- function() bandicoot::use_method()`. However, if it is not
 #' possible, then this function helps loads corresponding function into target
-#' environment or search path.
+#' environment.
 #'
-#' If it is used in a package, specify `package = TRUE`, this function will
-#' call [define_pkg_fn]. Otherwise, it will call [require] to attach the
-#' functions into the search path.
+#' This function will call [define_pkg_fn].
 #'
 #' @param env Environment. The target environment.
-#' @param package Boolean. Whether or not it is used in a package.
-#' @param reload Boolean. Whether or not to reload the namespace. Only works if
-#' `package = FALSE`.
 #' @param import_oop Boolean. Whether or not to import OOP tools.
 #' @param import_base Boolean. Whether or not to import BASE class.
-#' @param import_rand_var Boolean. Whether or not to import RAND_VAR classes.
-#' @param import_closed_form Boolean. Whether or not to import CLOSED_FORM class.
 #' @return No return value, called for side effects.
 #'
 #' @export
 import_bandicoot <- function(env = parent.frame(),
-                          package = FALSE,
-                          reload = FALSE,
-                          import_oop = TRUE,
-                          import_base = TRUE,
-                          import_rand_var = FALSE,
-                          import_closed_form = FALSE) {
+                             import_oop = TRUE,
+                             import_base = TRUE) {
   final_list <- list()
 
   if (import_oop) final_list <- append(final_list, oop_dependencies)
   if (import_base) final_list <- append(final_list, base_dependencies)
-  if (import_rand_var) final_list <- append(final_list, rand_var_dependencies)
-  if (import_closed_form) final_list <- append(final_list, closed_form_dependencies)
 
-  if (package) {
-    do.call(bandicoot::define_pkg_fn, append(list(pkg = "bandicoot"), final_list),
-            envir = env)
-  } else {
-    if (reload) do.call("detach", list(name = "package:bandicoot", unload = TRUE))
-    do.call("require", list(package = "bandicoot", include.only = unlist(final_list)),
-            envir = env)
-  }
-
+  do.call(define_pkg_fn, append(list(pkg = "bandicoot"), final_list),
+          envir = env)
 }

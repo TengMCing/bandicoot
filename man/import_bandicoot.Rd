@@ -2,33 +2,16 @@
 % Please edit documentation in R/oop.R
 \name{import_bandicoot}
 \alias{import_bandicoot}
-\title{Load functions from the bandicoot into target environment or search path}
+\title{Load functions from the bandicoot into target environment}
 \usage{
-import_bandicoot(
-  env = parent.frame(),
-  package = FALSE,
-  reload = FALSE,
-  import_oop = TRUE,
-  import_base = TRUE,
-  import_rand_var = FALSE,
-  import_closed_form = FALSE
-)
+import_bandicoot(env = parent.frame(), import_oop = TRUE, import_base = TRUE)
 }
 \arguments{
 \item{env}{Environment. The target environment.}
 
-\item{package}{Boolean. Whether or not it is used in a package.}
-
-\item{reload}{Boolean. Whether or not to reload the namespace. Only works if
-\code{package = FALSE}.}
-
 \item{import_oop}{Boolean. Whether or not to import OOP tools.}
 
 \item{import_base}{Boolean. Whether or not to import BASE class.}
-
-\item{import_rand_var}{Boolean. Whether or not to import RAND_VAR classes.}
-
-\item{import_closed_form}{Boolean. Whether or not to import CLOSED_FORM class.}
 }
 \value{
 No return value, called for side effects.
@@ -44,10 +27,8 @@ unless the function has been loaded into the current environment by calling
 using the package name directly inside the method body like
 \code{this_method <- function() bandicoot::use_method()}. However, if it is not
 possible, then this function helps loads corresponding function into target
-environment or search path.
+environment.
 }
 \details{
-If it is used in a package, specify \code{package = TRUE}, this function will
-call \link{define_pkg_fn}. Otherwise, it will call \link{require} to attach the
-functions into the search path.
+This function will call \link{define_pkg_fn}.
 }
