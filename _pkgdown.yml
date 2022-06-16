@@ -1,0 +1,108 @@
+template:
+  bootstrap: 5
+  bootswatch: minty
+  bslib:
+    pkgdown-nav-height: 100px
+reference:
+- title: "bandicoot OOP tools"
+  desc: >
+    Tools for building an OOP system
+  contents:
+  - register_method
+  - new_class
+  - copy_attr
+  - use_method
+  - import_bandicoot
+  - print.bandicoot_oop
+- title: "Portals to class instantiate methods"
+  desc: >
+    Functions to build an instance
+  contents:
+  - base_
+- title: "Base class"
+  desc: >
+    BASE class
+  contents:
+  - BASE
+  - BASE$..type..
+  - BASE$..class..
+  - BASE$..method_env..
+  - BASE$..instantiated..
+  - BASE$..len..
+  - BASE$..dict..
+  - BASE$..str..
+  - BASE$..methods..
+  - BASE$..new..
+  - BASE$..init..
+  - BASE$instantiate
+  - BASE$has_attr
+  - BASE$get_attr
+  - BASE$set_attr
+  - BASE$del_attr
+- title: "Random variable class"
+  desc: >
+    Random variable class
+  contents:
+  - RAND_VAR
+  - RAND_VAR$..init..
+  - RAND_VAR$..str..
+  - RAND_VAR$dist
+  - RAND_VAR$prm
+  - RAND_VAR$set_prm
+  - RAND_VAR$E
+  - RAND_VAR$Var
+  - RAND_VAR$gen
+- subtitle: "Random uniform variable class"
+  desc: >
+    Random uniform variable class
+  contents:
+  - RAND_UNIFORM
+  - RAND_UNIFORM$..init..
+  - RAND_UNIFORM$gen
+- subtitle: "Random discrete uniform variable class"
+  desc: >
+    Random discrete uniform variable class
+  contents:
+  - RAND_UNIFORM_D
+  - RAND_UNIFORM_D$..init..
+  - RAND_UNIFORM_D$gen
+- subtitle: "Random normal variable class"
+  desc: >
+    Random normal variable class
+  contents:
+  - RAND_NORMAL
+  - RAND_NORMAL$..init..
+  - RAND_NORMAL$gen
+- subtitle: "Random log-normal variable class"
+  desc: >
+    Random log-normal variable class
+  contents:
+  - RAND_LOGNORMAL
+  - RAND_LOGNORMAL$..init..
+  - RAND_LOGNORMAL$gen
+- title: "Closed form expression class"
+  desc: >
+    Closed form expression class
+  contents:
+  - CLOSED_FORM
+  - CLOSED_FORM$..init..
+  - CLOSED_FORM$..str..
+  - CLOSED_FORM$..len..
+  - CLOSED_FORM$ast
+  - CLOSED_FORM$sym
+  - CLOSED_FORM$sym_name
+  - CLOSED_FORM$sym_type
+  - CLOSED_FORM$expr
+  - CLOSED_FORM$set_sym
+  - CLOSED_FORM$set_expr
+  - CLOSED_FORM$compute
+  - CLOSED_FORM$gen
+  - CLOSED_FORM$as_dataframe
+- title: "Utilties"
+  desc: >
+    Utility functions
+  contents:
+  - define_pkg_fn
+  - bind_fn_2_env
+  - sub_fn_body_name
+
