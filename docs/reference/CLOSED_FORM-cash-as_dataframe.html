@@ -30,7 +30,7 @@ data frame."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/TengMCing/visage/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/TengMCing/bandicoot/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -43,7 +43,7 @@ data frame."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Transforming list to data frame</h1>
-      <small class="dont-index">Source: <a href="https://github.com/TengMCing/visage/blob/HEAD/R/zzz_CLOSED_FORM.R" class="external-link"><code>R/zzz_CLOSED_FORM.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/TengMCing/bandicoot/blob/HEAD/R/zzz_CLOSED_FORM.R" class="external-link"><code>R/zzz_CLOSED_FORM.R</code></a></small>
       <div class="d-none name"><code>CLOSED_FORM-cash-as_dataframe.Rd</code></div>
     </div>
 
@@ -82,16 +82,16 @@ data frame.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">cf</span><span class="op">$</span><span class="fu">as_dataframe</span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         .lhs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   9.723682</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  10.006352</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   9.981585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   8.674386</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  10.359748</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   9.606548</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  10.087570</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  10.738287</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   9.875052</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  8.846785</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  10.931963</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   9.761287</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   8.573800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   9.675500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   8.985109</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  10.019682</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   9.562999</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   8.832528</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  11.051499</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 10.937327</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Generate data and keep the RHS</span></span>
 <span class="r-in"><span class="va">result2</span> <span class="op">&lt;-</span> <span class="va">cf</span><span class="op">$</span><span class="fu">gen</span><span class="op">(</span><span class="fl">10</span>, rhs_val <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -99,16 +99,16 @@ data frame.</p>
 <span class="r-in"><span class="co"># Specify the name</span></span>
 <span class="r-in"><span class="va">cf</span><span class="op">$</span><span class="fu">as_dataframe</span><span class="op">(</span><span class="va">result2</span>, lhs <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            y          b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   9.223616 0.35625672</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   8.633497 0.15955049</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  10.059534 0.63489609</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   9.787167 0.54410704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  11.127707 0.99095386</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  10.713046 0.85273334</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   9.342083 0.39574580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   9.696676 0.51394336</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   8.283947 0.04303387</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  9.169540 0.33823149</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  10.923117 0.92275729</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   9.205436 0.35019677</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   8.671983 0.17237930</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   9.191077 0.34541065</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   8.755925 0.20035987</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   8.454211 0.09978864</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   9.602993 0.48271595</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   9.386632 0.41059557</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   9.796187 0.54711393</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 10.851217 0.89879054</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

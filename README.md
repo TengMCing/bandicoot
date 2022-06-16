@@ -9,48 +9,219 @@
 coverage](https://codecov.io/gh/TengMCing/bandicoot/branch/master/graph/badge.svg)](https://app.codecov.io/gh/TengMCing/bandicoot?branch=master)
 <!-- badges: end -->
 
-The goal of bandicoot is to …
+The goal of bandicoot is to provide tools for building light-weight
+python-like object oriented system.
 
 ## Installation
 
-You can install the development version of bandicoot like so:
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("TengMCing/bandicoot")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## 1. bandicoot OOP system
 
 ``` r
 library(bandicoot)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+**1.1. Define a new class**
+
+A class can be defined with the `new_class` function. All positional
+arguments are for specifying parent classes, `BASE` is the base object
+class provided by the package, you don’t need to manually specify it.
+But if you would like to have advanced behaviour, you can try to
+implement your own `object` class.
+
+Class name is mandatory and should be unique.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+# You don't actually need to specify BASE here. This is only for demonstration.
+DEMO <- new_class(BASE, class_name = "DEMO")
+DEMO
+#> 
+#> ── <DEMO class>
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+The object is an environment containing some useful attributes and
+methods.
 
-You can also embed plots, for example:
+-   `OBJECT$..type..` gives the current class name.
+-   `OBJECT$..class..` gives the current class name and parent class
+    names.
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+DEMO$..type..
+#> [1] "DEMO"
+DEMO$..class..
+#> [1] "DEMO" "BASE"
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+-   `OBJECT$..dict..()` returns all names of attribute and method of the
+    object.
+-   `OBJECT$..methods..()` returns all names of method of the object
+
+``` r
+DEMO$..dict..()
+#>  [1] "..dict.."         "..str.."          "..len.."          "..class.."       
+#>  [5] "..new.."          "..repr.."         "del_attr"         "has_attr"        
+#>  [9] "set_attr"         "..type.."         "get_attr"         "..methods.."     
+#> [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"
+DEMO$..methods..()
+#>  [1] "..dict.."    "..str.."     "..len.."     "..new.."     "..repr.."   
+#>  [6] "del_attr"    "has_attr"    "set_attr"    "get_attr"    "..methods.."
+#> [11] "..init.."    "instantiate"
+```
+
+-   `OBJECT$..str..()` returns a string representation of the object,
+    which will be used by the S3 `print()` method. This method usually
+    needs to be overridden in subclass to give short summary of the
+    object.
+
+``` r
+DEMO$..str..()
+#> [1] "<DEMO class>"
+```
+
+**1.2. Register a method for the class**
+
+Methods can be registered by using `register_method()`. The first
+argument is the object you want to bind the function to, the rest of the
+positional arguments are for specifying method names and functions. The
+syntax is `method_name = function`.
+
+You can choose to write inline function or pass pre-defined function.
+The associative environment of the function doesn’t matter, it will be
+modified by the `register_method()` function.
+
+``` r
+pre_defined_fn <- function() 1 + 2
+
+register_method(DEMO, inline_fn = function() 1 + 1, pre_defined_fn = pre_defined_fn)
+#> 
+#> ── <DEMO class>
+
+DEMO$inline_fn()
+#> [1] 2
+DEMO$pre_defined_fn()
+#> [1] 3
+```
+
+For method that needs to access the object itself, just simply use
+`self` in your method. It is an reference to the object.
+
+``` r
+DEMO$val <- 5
+
+register_method(DEMO, get_val = function() self$val)
+#> 
+#> ── <DEMO class>
+
+DEMO$get_val()
+#> [1] 5
+```
+
+**1.3. Override the `..init..()` method**
+
+`..init..()` method is for instance initialization. To override the
+`..init..()` method, you need to use the `register_method()` to register
+it again.
+
+``` r
+init <- function(first_name, employee_id) {
+  self$first_name <- first_name
+  self$employee_id <- employee_id
+}
+
+register_method(DEMO, ..init.. = init)
+#> 
+#> ── <DEMO class>
+```
+
+Now the class requires two two arguments `first_name` and `employee_id`
+to initialize the instance.
+
+**1.4. Build an instance**
+
+To new and initialize an instance, you need to use the `instantiate()`
+method. The output will show it is an object.
+
+``` r
+mike <- DEMO$instantiate("Mike", 25)
+mike
+#> 
+#> ── <DEMO object>
+```
+
+`first_name` and `employee_id` are stored in the object because of the
+`..init..()` method.
+
+``` r
+mike$first_name
+#> [1] "Mike"
+mike$employee_id
+#> [1] 25
+```
+
+**1.5. A complete workflow**
+
+It is recommend to write your class definition in a function to make
+debugging easier. The following example new a class `DEMO_2`, defines
+its own `..init..()` method, defines a `get_email()` function for
+retrieving the email address, defines its own `..str..()` method such
+that when we print the object, it will provide us with a nicely
+formatted summary.
+
+`use_method` is used to run methods from other classes, which in this
+case, the `..str..()` method from the `BASE` class.
+
+``` r
+class_DEMO_2 <- function(env = new.env(parent = parent.frame())) {
+  
+  new_class(env = env, class_name = "DEMO_2")
+  
+  init_ <- function(first_name, employee_id) {
+    self$first_name <- first_name
+    self$employee_id <- employee_id
+  }
+  
+  get_email_ <- function() {
+    paste0(self$first_name, "_", self$employee_id, "@company.com")
+  }
+  
+  str_ <- function() {
+    paste(use_method(self, BASE$..str..)(), 
+          paste("Name:", self$first_name,
+                "\nEmployee ID:", self$employee_id,
+                "\nEmail:", self$get_email()), 
+          sep = "\n")
+  }
+  
+  register_method(env,
+                  ..init.. = init_,
+                  get_email = get_email_,
+                  ..str.. = str_)
+  
+  return(env)
+}
+```
+
+``` r
+DEMO_2 <- class_DEMO_2()
+mike <- DEMO_2$instantiate("Mike", 25)
+mike$get_email()
+#> [1] "Mike_25@company.com"
+```
+
+``` r
+mike$..str..()
+#> [1] "<DEMO_2 object>\nName: Mike \nEmployee ID: 25 \nEmail: Mike_25@company.com"
+mike
+#> 
+#> ── <DEMO_2 object>
+#> Name: Mike 
+#> Employee ID: 25 
+#> Email: Mike_25@company.com
+```
