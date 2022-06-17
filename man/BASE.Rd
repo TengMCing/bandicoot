@@ -11,7 +11,10 @@ An environment with S3 class \code{bandicoot_oop}.
 BASE
 }
 \description{
-This class provides essential attributes and methods.
+This class provides essential attributes and methods. It makes
+the assumption that the container name is \code{..method_env..} and the name of
+the reference to self is \code{self}. If you would like to use other container
+names and self names, you need to overwrite the class definition of BASE.
 }
 \seealso{
 Attributes: \link{BASE$..type..}, \link{BASE$..class..}, \link{BASE$..method_env..},
