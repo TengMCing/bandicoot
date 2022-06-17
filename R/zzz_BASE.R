@@ -2,7 +2,10 @@
 #'
 #' @name BASE
 #'
-#' @description This class provides essential attributes and methods.
+#' @description This class provides essential attributes and methods. It makes
+#' the assumption that the container name is `..method_env..` and the name of
+#' the reference to self is `self`. If you would like to use other container
+#' names and self names, you need to overwrite the class definition of BASE.
 #' @format An environment with S3 class `bandicoot_oop`.
 #' @seealso Attributes: [BASE$..type..], [BASE$..class..], [BASE$..method_env..],
 #' [BASE$..instantiated..]
