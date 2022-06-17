@@ -179,11 +179,68 @@ oop_dependencies <- c("register_method", "use_method", "copy_attr", "new_class",
 
 base_dependencies <- append(list("BASE", "base_"), oop_dependencies)
 
-rand_var_dependencies <- append(list("RAND_VAR", "rand_var",
-                                     "RAND_UNIFORM", "rand_uniform",
-                                     "RAND_NORMAL", "rand_normal",
-                                     "RAND_UNIFORM_D", "rand_uniform_d",
-                                     "RAND_LOGNORMAL", "rand_lognormal"),
-                                base_dependencies)
 
-closed_form_dependencies <- append(list("CLOSED_FORM", "closed_form"), base_dependencies)
+# check_method ------------------------------------------------------------
+
+
+#' Check each method body in an object if it contains names that do not
+#' explicitly bind to a specified namespace via `::`.
+#'
+#' Method body could contain names like "mutate" that are from packages,
+#' it usually would not be a problem as long as the package namespace is in
+#' the search path or it is available in the parent environment of the object.
+#' However, if the package is not loaded via functions like `library()` and
+#' the name used in the method body is unavailable in the parent environment of
+#' the object, then an error may be raised saying that "object `name` not found"
+#' when the method is run. \cr \cr This function helps detect this kind of
+#' problems. Users needs to specify the names they want to detect, and specify
+#' the package they belong to.
+#'
+#'
+#' @param env Environment. An environment.
+#' @param symbol_name Character. Names that want to be detected.
+#' @param target_namespace Character. Name of the package that symbols belong
+#' to.
+#' @return No return value, called for side effects.
+#'
+#' @examples
+#'
+#' e <- new.env()
+#' register_method(e, test = function() cli_alert_info("test"))
+#' check_method(e, "cli_alert_info", "cli")
+#'
+#' register_method(e, test = function() cli::cli_alert_info("test"))
+#' check_method(e, "cli_alert_info", "cli")
+#'
+#' @export
+check_method <- function(env, symbol_name, target_namespace) {
+
+  ast <- function(expr) {
+    if (is.call(expr)) {
+      expr_list <- as.list(expr)
+      lapply(expr_list, ast)
+    } else {
+      as.character(expr)
+    }
+  }
+
+  for (fn_name in use_method(env, BASE$..methods..)()) {
+
+    all_sym_name <- unlist(ast(body(env[[fn_name]])))
+    found_idx <- which(all_sym_name %in% symbol_name)
+    found_names <- c()
+
+    if (length(found_idx) > 0) {
+      for (idx in found_idx) {
+        if (idx == 1) {found_names <- c(found_names, all_sym_name[idx]); next}
+        if (all_sym_name[idx - 2] != "::") {found_names <- c(found_names, all_sym_name[idx]); next}
+        if (all_sym_name[idx - 2] == "::" && all_sym_name[idx - 1] != target_namespace) found_names <- c(found_names, all_sym_name[idx])
+      }
+    }
+
+    if (length(found_names) > 0) message(paste0("Found `", found_names, "` in method `", fn_name, "`."))
+  }
+
+  return(invisible(NULL))
+
+}
