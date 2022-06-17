@@ -462,3 +462,148 @@ import_bandicoot <- function(env = parent.frame(),
   do.call(define_pkg_fn, append(list(pkg = "bandicoot"), final_list),
           envir = env)
 }
+
+
+
+# is_bandicoot_oop --------------------------------------------------------
+
+
+#' Check whether the object is a `bandicoot_oop` object
+#'
+#' This function check whether the object is a `bandicoot_oop` object.
+#'
+#' @param obj Any object.
+#' @param why Boolean. Whether or not to print the reason when the check fail.
+#' @return A Boolean value.
+#'
+#' @examples
+#'
+#' e <- new.env()
+#' is_bandicoot_oop(e)
+#'
+#' e <- new_class(class_name = "test")
+#' is_bandicoot_oop(e)
+#'
+#' @export
+is_bandicoot_oop <- function(obj, why = FALSE) {
+
+  if (!is.environment(obj)) ifelse(why, {message("Object is not an environment!"); return(FALSE)}, return(FALSE))
+
+  if (!"bandicoot_oop" %in% class(obj)) ifelse(why, {message("`bandicoot_oop` not in object's S3 classes!"); return(FALSE)}, return(FALSE))
+
+  if (!"..class.." %in% names(obj)) ifelse(why, {message("Object does not contain `..class..`!"); return(FALSE)}, return(FALSE))
+  if (!is.character(obj$..class..)) ifelse(why, {message("`..class..` is not character!"); return(FALSE)}, return(FALSE))
+
+  if (!"..type.." %in% names(obj)) ifelse(why, {message("Object does not contain `..type..`!"); return(FALSE)}, return(FALSE))
+  if (!is.character(obj$..type..)) ifelse(why, {message("`..type..` is not character!"); return(FALSE)}, return(FALSE))
+
+  if (!"..instantiated.." %in% names(obj)) ifelse(why, {message("Object does not contain `..instantiated..`!"); return(FALSE)}, return(FALSE))
+  if (!is.logical(obj$..instantiated..)) ifelse(why, {message("`..instantiated..` is not Boolean!"); return(FALSE)}, return(FALSE))
+
+  return(TRUE)
+}
+
+
+# as_bandicoot_oop --------------------------------------------------------
+
+#' Turn an environment into a `bandicoot_oop` object
+#'
+#' This function tries to turn an environment into a `bandicoot_oop` object.
+#'
+#' @param env An environment.
+#' @param ..class.. Character. A series of class names.
+#' @param ..type.. Character. The class name of this object.
+#' @param ..instantiated.. Boolean. Whether this object is an instance.
+#' @param overwrite_container Boolean. Whether or not to overwrite the container.
+#' @param register Boolean. Whether or not to register functions if there are any.
+#' @param in_place Boolean. Whether or not to modify the environment in-place.
+#' If not, a new environment will be created.
+#' @param container_name Character. Name of the container.
+#' @param self_name Character. Name of the self reference.
+#' @return A Boolean value.
+#'
+#' @examples
+#'
+#' e <- new.env()
+#' e$a <- function() self
+#'
+#' as_bandicoot_oop(e,
+#'                  ..class.. = "test",
+#'                  ..type.. = "test",
+#'                  ..instantiated.. = FALSE,
+#'                  register = TRUE,
+#'                  in_place = TRUE)
+#'
+#' e
+#' e$a()
+#'
+#' @export
+as_bandicoot_oop <- function(env, ..class.. = NULL, ..type.. = NULL, ..instantiated.. = NULL,
+                             overwrite_container = FALSE,
+                             register = FALSE,
+                             in_place = FALSE,
+                             container_name = "..method_env..",
+                             self_name = "self") {
+
+  obj <- env
+
+  # If user does not want to modify the object in-place
+  if (!in_place) {
+
+    # New an object
+    new_obj <- new.env(parent = parent.env(obj))
+
+    # Copy everything from the old object
+    copy_attr(new_obj, obj, avoid = c(""))
+
+    obj <- new_obj
+  }
+
+  if (is_bandicoot_oop(obj)) {message("Object passes `is_bandicoot_oop()`. Take no action. If you want to new a container, consider using `register_method()`."); return()}
+  if (container_name %in% names(obj) && (!overwrite_container)) stop(paste0("Object already contains `", container_name, "`. Do you want to manually remove it or overwrite it by setting `overwrite_container = TRUE`?"))
+
+  # Overwrite the container
+  obj[[container_name]] <- new.env(parent = parent.env(obj))
+  obj[[container_name]][[self_name]] <- obj
+
+  all_fn_name <- names(obj)[unlist(lapply(names(obj), function(x) is.function(obj[[x]])))]
+
+  # If there are any functions in the object
+  if (length(all_fn_name) > 0) {
+
+    # If the user doesn't want to register those functions
+    if (!register) stop("Object contains functions. Do you want to manually remove them or register them by setting `register = TRUE`")
+
+    # Register the function one by one
+    for (fn_name in all_fn_name) {
+      call_list <- list(env = obj, fn = obj[[fn_name]], self_name = self_name, container_name = container_name)
+      names(call_list) <- c("env", fn_name, "self_name", "container_name")
+      do.call(register_method, call_list)
+    }
+  }
+
+  if (is.null(..class..)) {
+    if (!"..class.." %in% names(obj)) stop("Object doesn't contain `..class..`. Do you want to provide one via argument `..class..`?")
+  } else {
+    obj$..class.. <- ..class..
+  }
+
+  if (is.null(..type..)) {
+    if (!"..type.." %in% names(obj)) stop("Object doesn't contain `..type..`. Do you want to provide one via argument `..type..`?")
+  } else {
+    obj$..type.. <- ..type..
+  }
+
+  if (is.null(..instantiated..)) {
+    if (!"..instantiated.." %in% names(obj)) stop("Object doesn't contain `..instantiated..`. Do you want to provide one via argument `..instantiated..`?")
+  } else {
+    obj$..instantiated.. <- ..instantiated..
+  }
+
+  class(obj) <- "bandicoot_oop"
+
+  # final check
+  if (!is_bandicoot_oop(obj, TRUE)) stop("Can't proceed")
+
+  return(obj)
+}
