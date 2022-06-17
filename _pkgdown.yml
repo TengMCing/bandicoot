@@ -1,3 +1,4 @@
+url: tengmcing.github.io/bandicoot
 template:
   bootstrap: 5
   bootswatch: minty
@@ -13,6 +14,8 @@ reference:
   - copy_attr
   - use_method
   - import_bandicoot
+  - is_bandicoot_oop
+  - as_bandicoot_oop
   - print.bandicoot_oop
 - title: "Portals to class instantiate methods"
   desc: >
@@ -46,4 +49,5 @@ reference:
   - define_pkg_fn
   - bind_fn_2_env
   - sub_fn_body_name
+  - check_method
 

@@ -71,8 +71,8 @@ system. Since this OOP system is based on environment, any instance will only
 run on the environment they defined. So, function like <a href="use_method.html">use_method</a> which
 only exists in the package environment can not be accessed by the instance,
 unless the function has been loaded into the current environment by calling
-<code>use_method &lt;- bandicoot::use_method</code>, or <code><a href="https://tengmcing.github.io/bandicoot/" class="external-link">require(bandicoot)</a></code> or
-<code><a href="https://tengmcing.github.io/bandicoot/" class="external-link">library(bandicoot)</a></code>. This issue can usually be addressed by
+<code>use_method &lt;- bandicoot::use_method</code>, or <code><a href="https://tengmcing.github.io/bandicoot/">require(bandicoot)</a></code> or
+<code><a href="https://tengmcing.github.io/bandicoot/">library(bandicoot)</a></code>. This issue can usually be addressed by
 using the package name directly inside the method body like
 <code>this_method &lt;- function() bandicoot::use_method()</code>. However, if it is not
 possible, then this function helps loads corresponding function into target
