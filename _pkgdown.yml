@@ -1,4 +1,5 @@
-url: tengmcing.github.io/bandicoot
+url: https://tengmcing.github.io/bandicoot
+
 template:
   bootstrap: 5
   bootswatch: minty
@@ -16,7 +17,6 @@ reference:
   - import_bandicoot
   - is_bandicoot_oop
   - as_bandicoot_oop
-  - print.bandicoot_oop
 - title: "Portals to class instantiate methods"
   desc: >
     Functions to build an instance
@@ -34,6 +34,7 @@ reference:
   - BASE$..len..
   - BASE$..dict..
   - BASE$..str..
+  - BASE$..repr..
   - BASE$..methods..
   - BASE$..new..
   - BASE$..init..
@@ -42,6 +43,18 @@ reference:
   - BASE$get_attr
   - BASE$set_attr
   - BASE$del_attr
+- title: "S3 methods for building python-like interface"
+  desc: >
+    S3 methods for building python-like interface
+  contents:
+   - print.bandicoot_oop
+   - repr
+   - repr.bandicoot_oop
+   - len
+   - len.bandicoot_oop
+   - iter
+   - iter.bandicoot_oop
+   - starts_with("%")
 - title: "Utilties"
   desc: >
     Utility functions

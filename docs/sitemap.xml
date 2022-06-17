@@ -1,216 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>tengmcing.github.io/bandicoot/404.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/404.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/LICENSE-text.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/LICENSE.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/LICENSE.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/authors.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/authors.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/index.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/index.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/news/index.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/news/index.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..class...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..class...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..dict...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..dict...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..instantiated...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..instantiated...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..len...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..len...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..method_env...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..method_env...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..methods...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..methods...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..new...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..new...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..str...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..repr...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-..type...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..str...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-del_attr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..type...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-get_attr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-del_attr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-has_attr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-get_attr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-instantiate.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-has_attr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE-cash-set_attr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-instantiate.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/BASE.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-set_attr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-..len...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-..str...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-..len...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-as_dataframe.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-..str...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-ast.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-as_dataframe.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-compute.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-ast.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-expr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-compute.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-gen.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-expr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-set_expr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-gen.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-set_sym.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-set_expr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-sym.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-set_sym.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-sym_name.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-sym.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-sym_type.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-sym_name.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/CLOSED_FORM.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM-cash-sym_type.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_LOGNORMAL-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/CLOSED_FORM.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_LOGNORMAL-cash-gen.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_LOGNORMAL-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_LOGNORMAL.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_LOGNORMAL-cash-gen.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_NORMAL-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_LOGNORMAL.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_NORMAL-cash-gen.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_NORMAL-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_NORMAL.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_NORMAL-cash-gen.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_UNIFORM-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_NORMAL.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_UNIFORM-cash-gen.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_UNIFORM-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_UNIFORM.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_UNIFORM-cash-gen.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_UNIFORM_D-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_UNIFORM.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_UNIFORM_D-cash-gen.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_UNIFORM_D-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_UNIFORM_D.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_UNIFORM_D-cash-gen.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-..init...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_UNIFORM_D.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-..str...html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-..init...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-E.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-..str...html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-Var.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-E.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-dist.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-Var.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-gen.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-dist.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-prm.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-gen.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-set_prm.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-prm.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/RAND_VAR.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR-cash-set_prm.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/as_bandicoot_oop.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/RAND_VAR.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/bind_fn_2_env.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/as_bandicoot_oop.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/check_method.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/bind_fn_2_env.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/copy_attr.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/check_method.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/define_pkg_fn.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/copy_attr.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/import_bandicoot.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/define_pkg_fn.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/index.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-contains-grapes-.bandicoot_oop.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/is_bandicoot_oop.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-contains-grapes.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/new_class.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-eq-grapes-.bandicoot_oop.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/portal.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-eq-grapes.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/print.bandicoot_oop.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-equals-grapes-.bandicoot_oop.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/register_method.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-equals-grapes.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/sub_fn_body_name.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-ge-grapes-.bandicoot_oop.html</loc>
   </url>
   <url>
-    <loc>tengmcing.github.io/bandicoot/reference/use_method.html</loc>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-ge-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-gt-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-gt-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-le-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-le-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-lt-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-lt-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-ne-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-ne-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-plus-equals-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-plus-equals-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-plus-grapes-.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/grapes-plus-grapes.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/import_bandicoot.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/is_bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/iter.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/iter.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/len.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/len.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/new_class.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/portal.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/print.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/register_method.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/repr.bandicoot_oop.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/repr.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/sub_fn_body_name.html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/use_method.html</loc>
   </url>
 </urlset>
