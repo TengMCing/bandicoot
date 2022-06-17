@@ -133,26 +133,6 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
   return(env)
 }
 
-# print.bandicoot_oop -----------------------------------------------------
-
-#' S3 method of printing `bandicoot_oop` object
-#'
-#' This function print the string representation of the object.
-#'
-#' @param x `bandicoot_oop` object.
-#' @param ... ignored.
-#' @return No return value, called for side effects.
-#' @export
-print.bandicoot_oop <- function(x, ...) {
-  if ("..str.." %in% names(x)) {
-    cli::cli_h3(x$..str..())
-  } else {
-    cli::cli_h3("<unknown object>")
-  }
-
-  return(invisible(NULL))
-}
-
 
 # new_class ---------------------------------------------------------------
 
