@@ -11,7 +11,7 @@
 #' [BASE$..instantiated..]
 #' \cr
 #' \cr
-#' Methods: [BASE$..dict..], [BASE$..str..], [BASE$..len..],
+#' Methods: [BASE$..dict..], [BASE$..str..], [BASE$..repr..], [BASE$..len..],
 #' [BASE$has_attr], [BASE$get_attr], [BASE$set_attr], [BASE$del_attr],
 #' [BASE$..methods..], [BASE$..init..], [BASE$..new..], [BASE$instantiate]
 #' @export
@@ -112,6 +112,29 @@ BASE$..dict..
 #' test <- BASE$instantiate()
 #' test$..str..()
 BASE$..str..
+
+#' "Official" String representation of the object
+#'
+#' @name BASE$..repr..
+#'
+#' @description This function returns a "official" string representation of
+#' the object, which may be used to reconstruct the object given an appropriate
+#' environment.
+#' @return A string.
+#'
+#' @examples
+#'
+#' BASE$..repr..()
+#'
+#' test <- base_()
+#' test$..repr..()
+#'
+#' test <- BASE$instantiate()
+#' test$..repr..()
+#'
+#' test <- BASE$..new..()
+#' test$..repr..()
+BASE$..repr..
 
 #' Length of the class or the instance
 #'
