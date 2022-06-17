@@ -21,7 +21,7 @@ Attributes: \link{BASE$..type..}, \link{BASE$..class..}, \link{BASE$..method_env
 \link{BASE$..instantiated..}
 \cr
 \cr
-Methods: \link{BASE$..dict..}, \link{BASE$..str..}, \link{BASE$..len..},
+Methods: \link{BASE$..dict..}, \link{BASE$..str..}, \link{BASE$..repr..}, \link{BASE$..len..},
 \link{BASE$has_attr}, \link{BASE$get_attr}, \link{BASE$set_attr}, \link{BASE$del_attr},
 \link{BASE$..methods..}, \link{BASE$..init..}, \link{BASE$..new..}, \link{BASE$instantiate}
 }
