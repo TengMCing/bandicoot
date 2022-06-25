@@ -15,6 +15,16 @@ This class provides essential attributes and methods. It makes
 the assumption that the container name is \code{..method_env..} and the name of
 the reference to self is \code{self}. If you would like to use other container
 names and self names, you need to overwrite the class definition of BASE.
+\cr
+\cr
+The class environment is defined as an empty environment by \code{\link[=new.env]{new.env()}}
+at build-time, and the class descriptor is run at load-time by
+\code{\link[=.onLoad]{.onLoad()}}.
+This ensures methods and attributes of the class is built with the
+load-time (usually latest) installed dependencies (if it depends on any).
+Derived classes should follow the same principle to avoid running the class
+descriptor at build-time, and only defines the content of the class at
+load-time.
 }
 \seealso{
 Attributes: \link{BASE$..type..}, \link{BASE$..class..}, \link{BASE$..method_env..},
