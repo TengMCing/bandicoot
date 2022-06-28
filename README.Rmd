@@ -59,12 +59,12 @@ DEMO$..type..
 DEMO$..class..
 ```
 
-- `OBJECT$..dict..()` returns all names of attribute and method of the object.
+- `OBJECT$..dir..()` returns all names of attribute and method of the object.
 - `OBJECT$..methods..()` returns all names of method of the object
 
 
 ```{r}
-DEMO$..dict..()
+DEMO$..dir..()
 DEMO$..methods..()
 ```
 

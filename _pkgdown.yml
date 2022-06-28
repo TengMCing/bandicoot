@@ -32,7 +32,7 @@ reference:
   - BASE$..method_env..
   - BASE$..instantiated..
   - BASE$..len..
-  - BASE$..dict..
+  - BASE$..dir..
   - BASE$..str..
   - BASE$..repr..
   - BASE$..methods..

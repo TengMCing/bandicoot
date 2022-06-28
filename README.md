@@ -59,19 +59,19 @@ DEMO$..class..
 #> [1] "DEMO" "BASE"
 ```
 
--   `OBJECT$..dict..()` returns all names of attribute and method of the
+-   `OBJECT$..dir..()` returns all names of attribute and method of the
     object.
 -   `OBJECT$..methods..()` returns all names of method of the object
 
 ``` r
-DEMO$..dict..()
-#>  [1] "..dict.."         "..str.."          "..len.."          "..class.."       
-#>  [5] "..new.."          "..repr.."         "del_attr"         "has_attr"        
-#>  [9] "set_attr"         "..type.."         "get_attr"         "..methods.."     
+DEMO$..dir..()
+#>  [1] "..str.."          "..len.."          "..class.."        "..new.."         
+#>  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        
+#>  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     
 #> [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"
 DEMO$..methods..()
-#>  [1] "..dict.."    "..str.."     "..len.."     "..new.."     "..repr.."   
-#>  [6] "del_attr"    "has_attr"    "set_attr"    "get_attr"    "..methods.."
+#>  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   
+#>  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."
 #> [11] "..init.."    "instantiate"
 ```
 
