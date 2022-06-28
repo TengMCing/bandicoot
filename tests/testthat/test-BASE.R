@@ -14,12 +14,12 @@ test_that("bandicoot::BASE$..method_env..$self points to BASE", {
   expect_equal(bandicoot::BASE$..method_env..$self, bandicoot::BASE)
 })
 
-test_that("bandicoot::BASE$..dict..() runs in ..method_env..", {
-  expect_equal(environment(bandicoot::BASE$..dict..), bandicoot::BASE$..method_env..)
+test_that("bandicoot::BASE$..dir..() runs in ..method_env..", {
+  expect_equal(environment(bandicoot::BASE$..dir..), bandicoot::BASE$..method_env..)
 })
 
-test_that("bandicoot::BASE$..dict..() returns all object names in the environment", {
-  expect_equal(bandicoot::BASE$..dict..(), names(bandicoot::BASE))
+test_that("bandicoot::BASE$..dir..() returns all object names in the environment", {
+  expect_equal(bandicoot::BASE$..dir..(), names(bandicoot::BASE))
 })
 
 test_that("bandicoot::BASE$..str..() returns the correct string", {
