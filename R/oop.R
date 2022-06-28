@@ -228,7 +228,7 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
 #'
 #' test <- new.env()
 #' names(BASE)
-#' copy_attr(test, BASE, avoid = c("..method_env..", "..init_call..", "..dict.."))
+#' copy_attr(test, BASE, avoid = c("..method_env..", "..init_call..", "..dir.."))
 #' names(test)
 #'
 #' @export
@@ -376,7 +376,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
     return(self)
   }
 
-  dict_ <- function() names(self)
+  dir_ <- function() names(self)
 
   len_ <- function() NULL
 
@@ -399,7 +399,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
                   set_attr = set_attr_,
                   del_attr = del_attr_,
                   get_attr = get_attr_,
-                  ..dict.. = dict_,
+                  ..dir.. = dir_,
                   ..repr.. = repr_,
                   ..str.. = str_,
                   ..len.. = len_)

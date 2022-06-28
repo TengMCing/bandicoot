@@ -21,7 +21,7 @@
 #' [BASE$..instantiated..]
 #' \cr
 #' \cr
-#' Methods: [BASE$..dict..], [BASE$..str..], [BASE$..repr..], [BASE$..len..],
+#' Methods: [BASE$..dir..], [BASE$..str..], [BASE$..repr..], [BASE$..len..],
 #' [BASE$has_attr], [BASE$get_attr], [BASE$set_attr], [BASE$del_attr],
 #' [BASE$..methods..], [BASE$..init..], [BASE$..new..], [BASE$instantiate]
 #' @export
@@ -89,19 +89,19 @@ BASE$..instantiated..
 
 #' All names in the class or instance environment
 #'
-#' @name BASE$..dict..
+#' @name BASE$..dir..
 #'
 #' @description This function returns all names in the environment.
 #' @return A vector of string.
 #'
 #' @examples
 #'
-#' BASE$..dict..()
+#' BASE$..dir..()
 #'
 #' # Instantiate
 #' test <- BASE$instantiate()
-#' test$..dict..()
-BASE$..dict..
+#' test$..dir..()
+BASE$..dir..
 
 #' String representation of the object
 #'
@@ -302,12 +302,12 @@ BASE$..new..
 #'
 #' @examples
 #'
-#' BASE$..dict..()
+#' BASE$..dir..()
 #'
 #' # Build an instance
 #' base_instance <- BASE$instantiate()
 #'
-#' base_instance$..dict..()
+#' base_instance$..dir..()
 BASE$instantiate
 
 

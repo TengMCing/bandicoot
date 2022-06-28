@@ -112,21 +112,21 @@ parent class names.</li>
 <span class="co">#&gt; [1] "DEMO" "BASE"</span></code></pre></div>
 <ul>
 <li>
-<code>OBJECT$..dict..()</code> returns all names of attribute and
+<code>OBJECT$..dir..()</code> returns all names of attribute and
 method of the object.</li>
 <li>
 <code>OBJECT$..methods..()</code> returns all names of method of the
 object</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="fu">..dict..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "..dict.."         "..str.."          "..len.."          "..class.."       </span>
-<span class="co">#&gt;  [5] "..new.."          "..repr.."         "del_attr"         "has_attr"        </span>
-<span class="co">#&gt;  [9] "set_attr"         "..type.."         "get_attr"         "..methods.."     </span>
+<code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="fu">..dir..</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;  [1] "..str.."          "..len.."          "..class.."        "..new.."         </span>
+<span class="co">#&gt;  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        </span>
+<span class="co">#&gt;  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     </span>
 <span class="co">#&gt; [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"</span>
 <span class="va">DEMO</span><span class="op">$</span><span class="fu">..methods..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "..dict.."    "..str.."     "..len.."     "..new.."     "..repr.."   </span>
-<span class="co">#&gt;  [6] "del_attr"    "has_attr"    "set_attr"    "get_attr"    "..methods.."</span>
+<span class="co">#&gt;  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   </span>
+<span class="co">#&gt;  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."</span>
 <span class="co">#&gt; [11] "..init.."    "instantiate"</span></code></pre></div>
 <ul>
 <li>

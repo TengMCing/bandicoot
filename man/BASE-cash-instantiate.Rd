@@ -17,10 +17,10 @@ then initialized the instance with the \code{..init..} method.
 }
 \examples{
 
-BASE$..dict..()
+BASE$..dir..()
 
 # Build an instance
 base_instance <- BASE$instantiate()
 
-base_instance$..dict..()
+base_instance$..dir..()
 }
