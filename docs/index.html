@@ -150,8 +150,6 @@ modified by the <code><a href="reference/register_method.html">register_method()
 <code class="sourceCode R"><span class="va">pre_defined_fn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span>
 
 <span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, inline_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span>, pre_defined_fn <span class="op">=</span> <span class="va">pre_defined_fn</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── &lt;DEMO class&gt;</span>
 
 <span class="va">DEMO</span><span class="op">$</span><span class="fu">inline_fn</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] 2</span>
@@ -163,8 +161,6 @@ modified by the <code><a href="reference/register_method.html">register_method()
 <code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="va">val</span> <span class="op">&lt;-</span> <span class="fl">5</span>
 
 <span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, get_val <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="va">self</span><span class="op">$</span><span class="va">val</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── &lt;DEMO class&gt;</span>
 
 <span class="va">DEMO</span><span class="op">$</span><span class="fu">get_val</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] 5</span></code></pre></div>
@@ -178,9 +174,7 @@ override the <code>..init..()</code> method, you need to use the
   <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span> <span class="op">&lt;-</span> <span class="va">employee_id</span>
 <span class="op">}</span>
 
-<span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, ..init.. <span class="op">=</span> <span class="va">init</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── &lt;DEMO class&gt;</span></code></pre></div>
+<span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, ..init.. <span class="op">=</span> <span class="va">init</span><span class="op">)</span></code></pre></div>
 <p>Now the class requires two two arguments <code>first_name</code> and
 <code>employee_id</code> to initialize the instance.</p>
 <p><strong>1.4. Build an instance</strong></p>
