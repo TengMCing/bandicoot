@@ -130,7 +130,7 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
     bind_fn_2_env(env[[container_name]], env[[fn_names[i]]])
   }
 
-  return(env)
+  return(invisible(env))
 }
 
 
@@ -269,7 +269,7 @@ copy_attr <- function(env, ..., avoid = c("..method_env..", "..init_call..")) {
     list2env(attr_list, envir = env)
   }
 
-  return(env)
+  return(invisible(env))
 }
 
 
@@ -355,7 +355,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
   }
 
   # Default init method
-  init_ <- function(...) return(self)
+  init_ <- function(...) return(invisible(self))
 
   methods_ <- function() names(self)[unlist(lapply(names(self), function(x) is.function(self[[x]])))]
 
@@ -363,7 +363,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 
   set_attr_ <- function(attr_name, attr_val) {
     self[[attr_name]] <- attr_val
-    return(self)
+    return(invisible(self))
   }
 
   get_attr_ <- function(attr_name) self[[attr_name]]
@@ -373,7 +373,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
     if (attr_name %in% names(self)) {
       rm(list = attr_name, envir = self)
     }
-    return(self)
+    return(invisible(self))
   }
 
   dir_ <- function() names(self)
