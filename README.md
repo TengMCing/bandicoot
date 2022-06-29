@@ -100,8 +100,6 @@ modified by the `register_method()` function.
 pre_defined_fn <- function() 1 + 2
 
 register_method(DEMO, inline_fn = function() 1 + 1, pre_defined_fn = pre_defined_fn)
-#> 
-#> ── <DEMO class>
 
 DEMO$inline_fn()
 #> [1] 2
@@ -116,8 +114,6 @@ For method that needs to access the object itself, just simply use
 DEMO$val <- 5
 
 register_method(DEMO, get_val = function() self$val)
-#> 
-#> ── <DEMO class>
 
 DEMO$get_val()
 #> [1] 5
@@ -136,8 +132,6 @@ init <- function(first_name, employee_id) {
 }
 
 register_method(DEMO, ..init.. = init)
-#> 
-#> ── <DEMO class>
 ```
 
 Now the class requires two two arguments `first_name` and `employee_id`
