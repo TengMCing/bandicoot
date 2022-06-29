@@ -276,7 +276,7 @@ BASE$..init..
 #' @param env Environment. The instance environment. Default is
 #' `env = new.env(parent = parent.frame())`.
 #' @param init_call Call. Contents of the `..init_call..`. It is recommended to
-#' use the default value. Default is `init_call = sys.call()`.
+#' leave it as default. Default is `init_call = sys.call()`.
 #' @return An instance environment.
 #'
 #' @examples
@@ -298,6 +298,8 @@ BASE$..new..
 #' then initialized the instance with the `..init..` method.
 #' @param ... Arguments passed to `..init..` method.
 #' @param env Environment. The instance environment.
+#' @param init_call Call. Contents of the `..init_call..`. It is recommended to
+#' leave it as default. Default is `init_call = sys.call()`.
 #' @return An instance environment.
 #'
 #' @examples

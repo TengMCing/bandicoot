@@ -5,12 +5,15 @@
 \alias{base_}
 \title{Portals to class instantiate methods}
 \usage{
-base_(..., env = new.env(parent = parent.frame()))
+base_(..., env = new.env(parent = parent.frame()), init_call = sys.call())
 }
 \arguments{
 \item{...}{Arguments passed to \code{init} method.}
 
 \item{env}{Environment. The instance environment.}
+
+\item{init_call}{Call. Contents of the \code{..init_call..}. It is recommended to
+leave it as default. Default is \code{init_call = sys.call()}.}
 }
 \description{
 These functions are the same as \code{class$instantiate}.

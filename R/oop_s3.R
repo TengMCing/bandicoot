@@ -1,3 +1,42 @@
+
+# Python dunder method ----------------------------------------------------
+
+# Before implement this methods, check the documentation such that the behaviours are similar.
+
+# a
+
+# -[] __annotations__: this is the attribute for "type hints" in Python. A very promising attribute. Could be used in the future for type-checking system.
+# -[] __anext__: Async related method. Will not be considered.
+# -[] __add__: x + y. Could be implemented using `+.bandicoot`.
+# -[] __and__: x & y. Could be implemented using `&.bandicoot`.
+# -[] __abs__: abs(x). Could be implemented using `abs.bandicoot`.
+# -[] __await__: Async related method. Will not be considered.
+# -[] __aiter__: Async related method. Will not be considered.
+# -[] __aenter__: Async related method. Will not be considered.
+# -[] __aexit__: Async related method. Will not be considered.
+
+# b
+
+# -[] __bases__: A tuple containing the base classes, in the order of their occurrence in the base class list. Python read-only attributes. Will not be considered.
+# -[] __bytes__: bytes(x). Could be implemented using `bytes.bandicoot`.
+# -[] __bool__: bool(x). Could be implemented using `bool.bandicoot`.
+
+# c
+
+# -[] __code__: The code object representing the compiled function body. Will not be considered.
+# -[] __closure__: Python read-only attribute. Will not be considered.
+# -[] __call__: Not easy to implement in R.
+# -[] __class__: The class of an instance. Currently implemented as a character vector.
+# -[] __class_getitem__: Designed for type hints. Will not be considered.
+# -[] __contains__: x in y. Could be implemented using `%contains%.bandicoot`.
+# -[] __complex__: complex(x). Will not be considered.
+# -[] __ceil__: ceil(x). Could be implemented using `complex.bandicoot`.
+# -[] __doc__: The function's documentation string. Will not be considered.
+# -[] __defaults__: Default arguments. Will not be considered.
+# -[] __dict__: The namespace supporting arbitrary function attributes. Will only be implemented using `..dict..`.
+# -
+
+
 # print.bandicoot_oop -----------------------------------------------------
 
 #' S3 method of printing `bandicoot_oop` object

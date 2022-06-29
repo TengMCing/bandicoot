@@ -8,7 +8,7 @@
 \code{env = new.env(parent = parent.frame())}.}
 
 \item{init_call}{Call. Contents of the \code{..init_call..}. It is recommended to
-use the default value. Default is \code{init_call = sys.call()}.}
+leave it as default. Default is \code{init_call = sys.call()}.}
 }
 \value{
 An instance environment.

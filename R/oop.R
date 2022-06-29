@@ -320,10 +320,10 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
   new_class(env = env, class_name = "BASE", empty_class = TRUE)
 
   # Default instantiate method
-  instantiate_ <- function(..., env = new.env(parent = parent.frame())) {
+  instantiate_ <- function(..., env = new.env(parent = parent.frame()), init_call = sys.call()) {
 
     # Create an new object, called the class `..new..` method
-    self$..new..(env = env, init_call = sys.call())
+    self$..new..(env = env, init_call = init_call)
 
     # Init, called the object `..init..` method
     env$..init..(...)
