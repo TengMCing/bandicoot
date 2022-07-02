@@ -68,7 +68,9 @@
 <!-- badges: start -->
 
 <p>The goal of bandicoot is to provide tools for building light-weight
-python-like object oriented system.</p>
+python-like object oriented system. This system is inspired by the OOP
+systems implemented in <a href="https://github.com/r-lib/R6" class="external-link">R6</a> and
+<a href="https://github.com/python/cpython" class="external-link">Python</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -120,10 +122,11 @@ object</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="fu">..dir..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "..str.."          "..len.."          "..class.."        "..new.."         </span>
-<span class="co">#&gt;  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        </span>
-<span class="co">#&gt;  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     </span>
-<span class="co">#&gt; [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"</span>
+<span class="co">#&gt;  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span>
+<span class="co">#&gt;  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
+<span class="co">#&gt;  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
+<span class="co">#&gt; [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span>
+<span class="co">#&gt; [17] "..init.."         "..class_tree.."   "instantiate"</span>
 <span class="va">DEMO</span><span class="op">$</span><span class="fu">..methods..</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   </span>
 <span class="co">#&gt;  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."</span>

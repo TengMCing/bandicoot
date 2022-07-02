@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/TengMCing/bandicoot/branch/master/graph/badge.svg)](https://app.codecov.io/gh/TengMCing/bandicoot?branch=master)
 <!-- badges: end -->
 
-The goal of bandicoot is to provide tools for building light-weight python-like object oriented system.
+The goal of bandicoot is to provide tools for building light-weight python-like object oriented system. This system is inspired by the OOP systems implemented in [R6](https://github.com/r-lib/R6) and [Python](https://github.com/python/cpython).
 
 ## Installation
 

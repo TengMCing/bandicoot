@@ -83,7 +83,10 @@ is empty and <code>empty_class == FALSE</code>, <a href="BASE.html">BASE</a> wil
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Parents can be provided in <code>...</code>, where methods and attributes will be
-overrided by the left classes. If <code>...</code> is empty and <code>empty_class == FALSE</code>,
+overrided by the left classes because <code>bandicoot</code> does not support dynamic
+dispatch at the moment. However, this behaviour usually aligns with the method
+resolution order defined by the C3 algorithm used in Python.
+If <code>...</code> is empty and <code>empty_class == FALSE</code>,
 <a href="BASE.html">BASE</a> will be used as the parent class.</p>
     </div>
 
@@ -94,10 +97,11 @@ overrided by the left classes. If <code>...</code> is empty and <code>empty_clas
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;MYCLASS class&gt; </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">MYCLASS</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..str.."          "..len.."          "..class.."        "..new.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..init.."         "..class_tree.."   "instantiate"     </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Inhert from BASE class</span></span>
 <span class="r-in"><span class="va">TEST</span> <span class="op">&lt;-</span> <span class="fu">new_class</span><span class="op">(</span><span class="va">BASE</span>, class_name <span class="op">=</span> <span class="st">"TEST"</span><span class="op">)</span></span>
@@ -105,10 +109,11 @@ overrided by the left classes. If <code>...</code> is empty and <code>empty_clas
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;TEST class&gt; </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">TEST</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..str.."          "..len.."          "..class.."        "..new.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..init.."         "..class_tree.."   "instantiate"     </span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
