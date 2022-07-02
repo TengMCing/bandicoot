@@ -25,10 +25,21 @@ load-time (usually latest) installed dependencies (if it depends on any).
 Derived classes should follow the same principle to avoid running the class
 descriptor at build-time, and only defines the content of the class at
 load-time.
+\cr
+\cr
+Since \code{bandicoot} does not support dynamic dispatch at the current
+implementation, calling the correct parent method can be difficult in a
+complex class system.
+So, users can use the \code{..mro..} (method resolution order) attribute to
+determine the correct call. If users decide to store parent environments in
+the derived class such that parent method can be called more handily,
+awareness needs to be raised when saving and loading these classes/instances.
+It is very likely the same class stored in different objects becomes different
+environments.
 }
 \seealso{
 Attributes: \link{BASE$..type..}, \link{BASE$..class..}, \link{BASE$..method_env..},
-\link{BASE$..instantiated..}
+\link{BASE$..instantiated..}, \link{BASE$..mro..}, \link{BASE$..class_tree..}, \link{BASE$..bases..}
 \cr
 \cr
 Methods: \link{BASE$..dir..}, \link{BASE$..str..}, \link{BASE$..repr..}, \link{BASE$..len..},

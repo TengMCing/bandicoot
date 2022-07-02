@@ -59,18 +59,20 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="va">BASE</span><span class="op">$</span><span class="fu">..dir..</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..str.."          "..len.."          "..class.."        "..new.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..repr.."         "del_attr"         "has_attr"         "set_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "get_attr"         "..type.."         "..dir.."          "..methods.."     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..method_env.."   "..init.."         "..instantiated.." "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..str.."          "..len.."          "..class.."       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..new.."          "..repr.."         "del_attr"         "has_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "set_attr"         "get_attr"         "..type.."         "..dir.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..methods.."      "..method_env.."   "..init.."         "..instantiated.."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..class_tree.."   "instantiate"     </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Instantiate</span></span>
 <span class="r-in"><span class="va">test</span> <span class="op">&lt;-</span> <span class="va">BASE</span><span class="op">$</span><span class="fu">instantiate</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">test</span><span class="op">$</span><span class="fu">..dir..</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..str.."          "..len.."          "..class.."        "..new.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..method_env.."   "..instantiated.." "..init.."         "..init_call.."   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..str.."          "..len.."          "..class.."       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..new.."          "has_attr"         "del_attr"         "..repr.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "set_attr"         "..type.."         "get_attr"         "..dir.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..methods.."      "..method_env.."   "..instantiated.." "..init.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..init_call.."    "..class_tree.."  </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

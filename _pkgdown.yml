@@ -29,6 +29,9 @@ reference:
   - BASE
   - BASE$..type..
   - BASE$..class..
+  - BASE$..class_tree..
+  - BASE$..bases..
+  - BASE$..mro..
   - BASE$..method_env..
   - BASE$..instantiated..
   - BASE$..len..

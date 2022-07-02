@@ -16,9 +16,20 @@
 #' Derived classes should follow the same principle to avoid running the class
 #' descriptor at build-time, and only defines the content of the class at
 #' load-time.
+#' \cr
+#' \cr
+#' Since `bandicoot` does not support dynamic dispatch at the current
+#' implementation, calling the correct parent method can be difficult in a
+#' complex class system.
+#' So, users can use the `..mro..` (method resolution order) attribute to
+#' determine the correct call. If users decide to store parent environments in
+#' the derived class such that parent method can be called more handily,
+#' awareness needs to be raised when saving and loading these classes/instances.
+#' It is very likely the same class stored in different objects becomes different
+#' environments.
 #' @format An environment with S3 class `bandicoot_oop`.
 #' @seealso Attributes: [BASE$..type..], [BASE$..class..], [BASE$..method_env..],
-#' [BASE$..instantiated..]
+#' [BASE$..instantiated..], [BASE$..mro..], [BASE$..class_tree..], [BASE$..bases..]
 #' \cr
 #' \cr
 #' Methods: [BASE$..dir..], [BASE$..str..], [BASE$..repr..], [BASE$..len..],
@@ -56,6 +67,51 @@ BASE$..type..
 #' TEST <- new_class(BASE, class_name = "TEST")
 #' TEST$..class..
 BASE$..class..
+
+#' Class name and parent class names represented in a tree
+#'
+#' @name BASE$..class_tree..
+#'
+#' @description A list.
+#'
+#' @examples
+#'
+#' BASE$..class_tree..
+#'
+#' # Inherit from BASE
+#' TEST <- new_class(BASE, class_name = "TEST")
+#' TEST$..class_tree..
+BASE$..class_tree..
+
+#' Method resolution order
+#'
+#' @name BASE$..mro..
+#'
+#' @description Method resolution order defined using C3 algorithm.
+#'
+#' @examples
+#'
+#' BASE$..mro..
+#'
+#' # Inherit from BASE
+#' TEST <- new_class(BASE, class_name = "TEST")
+#' TEST$..mro..
+BASE$..mro..
+
+#' Direct parent classes
+#'
+#' @name BASE$..bases..
+#'
+#' @description Direct parent classes
+#'
+#' @examples
+#'
+#' BASE$..bases..
+#'
+#' # Inherit from BASE
+#' TEST <- new_class(BASE, class_name = "TEST")
+#' TEST$..bases..
+BASE$..bases..
 
 #' The container
 #'

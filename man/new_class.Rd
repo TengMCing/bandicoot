@@ -32,7 +32,10 @@ parent classes.
 }
 \details{
 Parents can be provided in \code{...}, where methods and attributes will be
-overrided by the left classes. If \code{...} is empty and \code{empty_class == FALSE},
+overrided by the left classes because \code{bandicoot} does not support dynamic
+dispatch at the moment. However, this behaviour usually aligns with the method
+resolution order defined by the C3 algorithm used in Python.
+If \code{...} is empty and \code{empty_class == FALSE},
 \link{BASE} will be used as the parent class.
 }
 \examples{

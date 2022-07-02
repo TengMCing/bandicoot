@@ -1,3 +1,70 @@
+# C3_mro ------------------------------------------------------------------
+
+C3_mro <- function(class_tree) {
+
+  if (!is.list(class_tree[[1]])) return(class_tree[[1]])
+
+  C3_remove_good_head <- function(current_list, good_head) {
+
+    result_list <- list()
+    i <- 0
+    good_head_value <- current_list[[good_head]][1]
+
+    for (item in current_list) {
+      if (length(item[item != good_head_value]) != 0) {
+        i <- i + 1
+        result_list[[i]] <- item[item != good_head_value]
+      }
+    }
+
+    return(result_list)
+  }
+
+  C3_find_good_head <- function(current_list) {
+
+    if (length(current_list) == 1) return(1)
+
+    for (idx in 1:length(current_list)) {
+      tails_ <- unlist(lapply(current_list[-idx], function(x) x[-1]))
+
+      if (length(tails_) == 0) return(idx)
+
+      if (!any(current_list[[idx]][1] %in% tails_)) {
+        return(idx)
+      }
+    }
+
+    stop("Fail to create class! Unable to resolve the Method Resultion Order.")
+  }
+
+  C3_merge <- function(merge_list) {
+
+    merge_result <- c()
+    while (length(merge_list) > 0) {
+      good_head <- C3_find_good_head(merge_list)
+      merge_result <- c(merge_result, merge_list[[good_head]][1])
+      merge_list <- C3_remove_good_head(merge_list, good_head)
+    }
+
+    return(merge_result)
+  }
+
+  mro <- c(names(class_tree)[1],
+           C3_merge(
+             append(lapply(names(class_tree[[1]]),
+                           function(x) {
+                             tmp_list <- list(class_tree[[1]][[x]])
+                             names(tmp_list) <- x
+                             C3_mro(tmp_list)
+                             }),
+                    as.list(names(class_tree[[1]])))
+             )
+           )
+
+  mro
+
+}
+
 # register_method ---------------------------------------------------------
 
 #' Register method for an object environment
@@ -142,7 +209,10 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
 #' parent classes.
 #'
 #' Parents can be provided in `...`, where methods and attributes will be
-#' overrided by the left classes. If `...` is empty and `empty_class == FALSE`,
+#' overrided by the left classes because `bandicoot` does not support dynamic
+#' dispatch at the moment. However, this behaviour usually aligns with the method
+#' resolution order defined by the C3 algorithm used in Python.
+#' If `...` is empty and `empty_class == FALSE`,
 #' [BASE] will be used as the parent class.
 #'
 #' @param ... Environments. Parent class environments.
@@ -179,7 +249,21 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
     parent_cls_list <- list(...)
   }
 
-  # Methods will be overrided by the left classes
+  # If it is an empty class, define a single node class tree
+  # Otherwise, copy the class trees as nodes
+  if (empty_class) {
+    env$..class_tree.. <- list(class_name)
+    names(env$..class_tree..) <- class_name
+  } else {
+    env$..class_tree.. <- list(lapply(parent_cls_list, function(x) x$..class_tree..[[1]]))
+    names(env$..class_tree..) <- class_name
+    all_parent_names <- unlist(lapply(parent_cls_list, function(x) x$..type..))
+    names(env$..class_tree..[[1]]) <- all_parent_names
+    env$..bases.. <- all_parent_names
+  }
+
+  env$..mro.. <- C3_mro(env$..class_tree..)
+
   for (parent in rev(parent_cls_list)) {
 
     if (parent$..instantiated..) stop("Parent is not a class!")
@@ -192,10 +276,13 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
                                      "..init_call..",
                                      "..class..",
                                      "..type..",
-                                     "..instantiated.."))
+                                     "..instantiated..",
+                                     "..class_tree..",
+                                     "..mro..",
+                                     "..bases.."))
   }
 
-  env$..class.. <- c(class_name, env$..class..)
+  env$..class.. <- unique(c(class_name, env$..class..))
   env$..type.. <- class_name
   env$..instantiated.. <- FALSE
 

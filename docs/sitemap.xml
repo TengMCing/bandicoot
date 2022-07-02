@@ -19,7 +19,13 @@
     <loc>https://tengmcing.github.io/bandicoot/news/index.html</loc>
   </url>
   <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..bases...html</loc>
+  </url>
+  <url>
     <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..class...html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..class_tree...html</loc>
   </url>
   <url>
     <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..dict...html</loc>
@@ -41,6 +47,9 @@
   </url>
   <url>
     <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..methods...html</loc>
+  </url>
+  <url>
+    <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..mro...html</loc>
   </url>
   <url>
     <loc>https://tengmcing.github.io/bandicoot/reference/BASE-cash-..new...html</loc>

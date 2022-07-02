@@ -10,7 +10,9 @@ coverage](https://codecov.io/gh/TengMCing/bandicoot/branch/master/graph/badge.sv
 <!-- badges: end -->
 
 The goal of bandicoot is to provide tools for building light-weight
-python-like object oriented system.
+python-like object oriented system. This system is inspired by the OOP
+systems implemented in [R6](https://github.com/r-lib/R6) and
+[Python](https://github.com/python/cpython).
 
 ## Installation
 
@@ -65,10 +67,11 @@ DEMO$..class..
 
 ``` r
 DEMO$..dir..()
-#>  [1] "..str.."          "..len.."          "..class.."        "..new.."         
-#>  [5] "has_attr"         "del_attr"         "..repr.."         "set_attr"        
-#>  [9] "..type.."         "get_attr"         "..dir.."          "..methods.."     
-#> [13] "..method_env.."   "..instantiated.." "..init.."         "instantiate"
+#>  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         
+#>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        
+#>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        
+#> [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."
+#> [17] "..init.."         "..class_tree.."   "instantiate"
 DEMO$..methods..()
 #>  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   
 #>  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."
