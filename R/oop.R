@@ -95,6 +95,8 @@ C3_mro <- function(class_tree) {
 #' executed inside this container.
 #' @param self_name Character. Name of the self reference. Methods needs to use
 #' this name to access the object environment.
+#' @param class_name Character. Name of the class of the object environment.
+#' This is important for `super()` to resolve the correct parent class.
 #' @return Return the object itself.
 #'
 #' @examples
@@ -105,7 +107,7 @@ C3_mro <- function(class_tree) {
 #' e$x <- 1
 #'
 #' # Register the method `aa` for environment `e` with `self_name = "self"`
-#' register_method(e, aa = a, self_name = "self")
+#' register_method(e, aa = a, self_name = "self", class_name = "test")
 #'
 #' # There is an environment `..method_env..` in the environment `e`
 #' names(e)
@@ -123,7 +125,7 @@ C3_mro <- function(class_tree) {
 #' e$aa()
 #'
 #' @export
-register_method <- function(env, ..., container_name = "..method_env..", self_name = "self") {
+register_method <- function(env, ..., container_name = "..method_env..", self_name = "self", class_name = env$..type..) {
 
   # Capture function call
   fn_list <- as.list(sys.call())
@@ -176,6 +178,7 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
 
   fn_list$container_name <- NULL
   fn_list$self_name <- NULL
+  fn_list$class_name <- NULL
 
   # Check if `fn_names` are provided via named arguments and delete all "`"
   # A unnamed list will return NULL, a named list but without names will return empty strings
@@ -191,6 +194,15 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
 
     # Check whether it is a function
     if (!is.function(eval_fn)) stop("`", as.expression(fn_list[[i]]), "` is not a function!")
+
+    # Modify the arguments of the function, such that it is clear which class the function belongs to
+    eval_fn_formals <- formals(eval_fn)
+    if ("..mro_current.." %in% names(eval_fn_formals)) {
+      eval_fn_formals[["..mro_current.."]] <- class_name
+    } else {
+      eval_fn_formals <- append(eval_fn_formals, list(..mro_current.. = class_name))
+    }
+    formals(eval_fn) <- eval_fn_formals
 
     # Bind it to the container of the instance environment
     env[[fn_names[i]]] <- eval_fn
@@ -272,14 +284,17 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
 
     # Copy all the methods and attributes from the class/instance
     # except the container, the init_call, and the class information
-    copy_attr(env, parent, avoid = c("..method_env..",
-                                     "..init_call..",
-                                     "..class..",
-                                     "..type..",
-                                     "..instantiated..",
-                                     "..class_tree..",
-                                     "..mro..",
-                                     "..bases.."))
+    copy_attr(env,
+              parent,
+              avoid = c("..method_env..",
+                        "..init_call..",
+                        "..class..",
+                        "..type..",
+                        "..instantiated..",
+                        "..class_tree..",
+                        "..mro..",
+                        "..bases.."),
+              class_name = class_name)
   }
 
   env$..class.. <- unique(c(class_name, env$..class..))
@@ -309,6 +324,8 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
 #' @param env Environment. The destination environment.
 #' @param ... Environments. Source environments.
 #' @param avoid Character. Names that don't want to be copied.
+#' @param class_name Character. Name of the class the method is defined.
+#' This is important for `super()` to resolve the correct parent class.
 #' @return Return the object itself.
 #'
 #' @examples
@@ -319,7 +336,7 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
 #' names(test)
 #'
 #' @export
-copy_attr <- function(env, ..., avoid = c("..method_env..", "..init_call..")) {
+copy_attr <- function(env, ..., avoid = c("..method_env..", "..init_call.."), class_name = env$..type..) {
 
   if (!is.environment(env)) stop("`env` is not an environment!")
 
@@ -350,7 +367,7 @@ copy_attr <- function(env, ..., avoid = c("..method_env..", "..init_call..")) {
     method_list$env <- env
 
     # Bind methods to the target container
-    do.call(register_method, method_list)
+    do.call(register_method, append(method_list, list(class_name = class_name)))
 
     # Set attributes
     list2env(attr_list, envir = env)
@@ -394,6 +411,29 @@ use_method <- function(env, fn, container_name = "..method_env..") {
   return(fn)
 }
 
+
+# super -------------------------------------------------------------------
+
+super <- function(self_name = "self", mro_current_name = "..mro_current..") {
+
+  env <- eval(as.symbol(self_name), envir = parent.frame())
+  current_class <- eval(as.symbol(mro_current_name), envir = parent.frame())
+
+  if (length(env$..mro..) == 0) stop("The MRO is empty!")
+  if (!current_class %in% env$..mro..) stop("The current class is not in the MRO. Can not resolve the next class!")
+  if (which(current_class == env$..mro..) == length(env$..mro..)) stop("The current class is the last class in the MRO. Can not find the next class!")
+
+  # Get the next class name
+  next_class <- env$..mro..[which(current_class == env$..mro..) + 1]
+
+  # Try to evaluate it in the parent environment
+  next_class_object <- eval(as.symbol(next_class), envir = parent.env(env))
+
+  is_bandicoot_oop(next_class_object)
+
+  return(next_class_object)
+}
+
 # BASE --------------------------------------------------------------------
 
 # nocov start
@@ -423,10 +463,13 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 
     # Copy all the methods and attributes from the class/instance
     # except the container, the instantiate method, init_call
-    bandicoot::copy_attr(env, self, avoid = c("..method_env..",
-                                              "instantiate",
-                                              "..init_call..",
-                                              "..instantiated.."))
+    bandicoot::copy_attr(env,
+                         self,
+                         avoid = c("..method_env..",
+                                   "instantiate",
+                                   "..init_call..",
+                                   "..instantiated.."),
+                         class_name = self$..type..)
 
     # Set the `init_call`
     env$..init_call.. <- init_call
@@ -494,6 +537,9 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 }
 
 # nocov end
+
+
+# import_bandicoot --------------------------------------------------------
 
 
 #' Load functions from the bandicoot into target environment
@@ -621,7 +667,7 @@ as_bandicoot_oop <- function(env, ..class.. = NULL, ..type.. = NULL, ..instantia
     new_obj <- new.env(parent = parent.env(obj))
 
     # Copy everything from the old object
-    copy_attr(new_obj, obj, avoid = c(""))
+    copy_attr(new_obj, obj, avoid = c(""), class_name = obj$..type..)
 
     obj <- new_obj
   }
