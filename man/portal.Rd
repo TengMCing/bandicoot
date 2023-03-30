@@ -20,6 +20,6 @@ These functions are the same as \code{class$instantiate}.
 }
 \section{Functions}{
 \itemize{
-\item \code{base_}: \link{BASE}
-}}
+\item \code{base_()}: \link{BASE}
 
+}}
