@@ -9,8 +9,8 @@
     Use four spaces when indenting paragraphs within the Description.">
 <title>Tools for building light-weight python-like object oriented system • bandicoot</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Tools for building light-weight python-like object oriented system">
 <meta property="og:description" content="More about what it does (maybe more than one line)
@@ -28,14 +28,14 @@
     
     <a class="navbar-brand me-2" href="index.html">bandicoot</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
@@ -67,188 +67,155 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of bandicoot is to provide tools for building light-weight
-python-like object oriented system. This system is inspired by the OOP
-systems implemented in <a href="https://github.com/r-lib/R6" class="external-link">R6</a> and
-<a href="https://github.com/python/cpython" class="external-link">Python</a>.</p>
+<p>The goal of bandicoot is to provide a set of tools for building light-weight object oriented system, which has Python-like syntax and duner methods for simplicity, but uses static dispatch for less overhead. This system also allows multiple inheritances and provides Python-like method resolution order for the possibility of implementing dynamic dispatch by users.</p>
+<p>This system is inspired by the OOP systems implemented in <a href="https://github.com/r-lib/R6" class="external-link">R6</a> and <a href="https://github.com/python/cpython" class="external-link">Python</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>Install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"TengMCing/bandicoot"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"TengMCing/bandicoot"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="1-bandicoot-oop-system">1. bandicoot OOP system<a class="anchor" aria-label="anchor" href="#1-bandicoot-oop-system"></a>
+<h2 id="id_1-bandicoot-oop-system">1. bandicoot OOP system<a class="anchor" aria-label="anchor" href="#id_1-bandicoot-oop-system"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tengmcing.github.io/bandicoot/">bandicoot</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tengmcing.github.io/bandicoot/">bandicoot</a></span><span class="op">)</span></span></code></pre></div>
 <p><strong>1.1. Define a new class</strong></p>
-<p>A class can be defined with the <code>new_class</code> function. All
-positional arguments are for specifying parent classes,
-<code>BASE</code> is the base object class provided by the package, you
-don’t need to manually specify it. But if you would like to have
-advanced behaviour, you can try to implement your own
-<code>object</code> class.</p>
+<p>A class can be defined with the <code>new_class</code> function. All positional arguments are for specifying parent classes, <code>BASE</code> is the base object class provided by the package, you don’t need to manually specify it. But if you would like to have advanced behaviour, you can try to implement your own <code>object</code> class.</p>
 <p>Class name is mandatory and should be unique.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># You don't actually need to specify BASE here. This is only for demonstration.</span>
-<span class="va">DEMO</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/new_class.html">new_class</a></span><span class="op">(</span><span class="va">BASE</span>, class_name <span class="op">=</span> <span class="st">"DEMO"</span><span class="op">)</span>
-<span class="va">DEMO</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── &lt;DEMO class&gt;</span></code></pre></div>
-<p>The object is an environment containing some useful attributes and
-methods.</p>
+<code class="sourceCode R"><span><span class="co"># You don't actually need to specify BASE here. This is only for demonstration.</span></span>
+<span><span class="va">DEMO</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/new_class.html">new_class</a></span><span class="op">(</span><span class="va">BASE</span>, class_name <span class="op">=</span> <span class="st">"DEMO"</span><span class="op">)</span></span>
+<span><span class="va">DEMO</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ── &lt;DEMO class&gt;</span></span></code></pre></div>
+<p>The object is an environment containing some useful attributes and methods.</p>
 <ul>
 <li>
 <code>OBJECT$..type..</code> gives the current class name.</li>
 <li>
-<code>OBJECT$..class..</code> gives the current class name and
-parent class names.</li>
+<code>OBJECT$..class..</code> gives the current class name and parent class names.</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="va">..type..</span>
-<span class="co">#&gt; [1] "DEMO"</span>
-<span class="va">DEMO</span><span class="op">$</span><span class="va">..class..</span>
-<span class="co">#&gt; [1] "DEMO" "BASE"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">DEMO</span><span class="op">$</span><span class="va">..type..</span></span>
+<span><span class="co">#&gt; [1] "DEMO"</span></span>
+<span><span class="va">DEMO</span><span class="op">$</span><span class="va">..class..</span></span>
+<span><span class="co">#&gt; [1] "DEMO" "BASE"</span></span></code></pre></div>
 <ul>
 <li>
-<code>OBJECT$..dir..()</code> returns all names of attribute and
-method of the object.</li>
+<code>OBJECT$..dir..()</code> returns all names of attribute and method of the object.</li>
 <li>
-<code>OBJECT$..methods..()</code> returns all names of method of the
-object</li>
+<code>OBJECT$..methods..()</code> returns all names of method of the object</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="fu">..dir..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span>
-<span class="co">#&gt;  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
-<span class="co">#&gt;  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
-<span class="co">#&gt; [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span>
-<span class="co">#&gt; [17] "..init.."         "..class_tree.."   "instantiate"</span>
-<span class="va">DEMO</span><span class="op">$</span><span class="fu">..methods..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   </span>
-<span class="co">#&gt;  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."</span>
-<span class="co">#&gt; [11] "..init.."    "instantiate"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">DEMO</span><span class="op">$</span><span class="fu">..dir..</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span></span>
+<span><span class="co">#&gt;  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span></span>
+<span><span class="co">#&gt;  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span></span>
+<span><span class="co">#&gt; [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span></span>
+<span><span class="co">#&gt; [17] "..init.."         "..class_tree.."   "instantiate"</span></span>
+<span><span class="va">DEMO</span><span class="op">$</span><span class="fu">..methods..</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   </span></span>
+<span><span class="co">#&gt;  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."</span></span>
+<span><span class="co">#&gt; [11] "..init.."    "instantiate"</span></span></code></pre></div>
 <ul>
 <li>
-<code>OBJECT$..str..()</code> returns a string representation of the
-object, which will be used by the S3 <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> method. This
-method usually needs to be overridden in subclass to give short summary
-of the object.</li>
+<code>OBJECT$..str..()</code> returns a string representation of the object, which will be used by the S3 <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> method. This method usually needs to be overridden in subclass to give short summary of the object.</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="fu">..str..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "&lt;DEMO class&gt;"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">DEMO</span><span class="op">$</span><span class="fu">..str..</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "&lt;DEMO class&gt;"</span></span></code></pre></div>
 <p><strong>1.2. Register a method for the class</strong></p>
-<p>Methods can be registered by using <code><a href="reference/register_method.html">register_method()</a></code>.
-The first argument is the object you want to bind the function to, the
-rest of the positional arguments are for specifying method names and
-functions. The syntax is <code>method_name = function</code>.</p>
-<p>You can choose to write inline function or pass pre-defined function.
-The associative environment of the function doesn’t matter, it will be
-modified by the <code><a href="reference/register_method.html">register_method()</a></code> function.</p>
+<p>Methods can be registered by using <code><a href="reference/register_method.html">register_method()</a></code>. The first argument is the object you want to bind the function to, the rest of the positional arguments are for specifying method names and functions. The syntax is <code>method_name = function</code>.</p>
+<p>You can choose to write inline function or pass pre-defined function. The associative environment of the function doesn’t matter, it will be modified by the <code><a href="reference/register_method.html">register_method()</a></code> function.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pre_defined_fn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span>
-
-<span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, inline_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span>, pre_defined_fn <span class="op">=</span> <span class="va">pre_defined_fn</span><span class="op">)</span>
-
-<span class="va">DEMO</span><span class="op">$</span><span class="fu">inline_fn</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] 2</span>
-<span class="va">DEMO</span><span class="op">$</span><span class="fu">pre_defined_fn</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] 3</span></code></pre></div>
-<p>For method that needs to access the object itself, just simply use
-<code>self</code> in your method. It is an reference to the object.</p>
+<code class="sourceCode R"><span><span class="va">pre_defined_fn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, inline_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span>, pre_defined_fn <span class="op">=</span> <span class="va">pre_defined_fn</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">DEMO</span><span class="op">$</span><span class="fu">inline_fn</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="va">DEMO</span><span class="op">$</span><span class="fu">pre_defined_fn</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3</span></span></code></pre></div>
+<p>For method that needs to access the object itself, just simply use <code>self</code> in your method. It is an reference to the object.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DEMO</span><span class="op">$</span><span class="va">val</span> <span class="op">&lt;-</span> <span class="fl">5</span>
-
-<span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, get_val <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="va">self</span><span class="op">$</span><span class="va">val</span><span class="op">)</span>
-
-<span class="va">DEMO</span><span class="op">$</span><span class="fu">get_val</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] 5</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">DEMO</span><span class="op">$</span><span class="va">val</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, get_val <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="va">self</span><span class="op">$</span><span class="va">val</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">DEMO</span><span class="op">$</span><span class="fu">get_val</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 5</span></span></code></pre></div>
 <p><strong>1.3. Override the <code>..init..()</code> method</strong></p>
-<p><code>..init..()</code> method is for instance initialization. To
-override the <code>..init..()</code> method, you need to use the
-<code><a href="reference/register_method.html">register_method()</a></code> to register it again.</p>
+<p><code>..init..()</code> method is for instance initialization. To override the <code>..init..()</code> method, you need to use the <code><a href="reference/register_method.html">register_method()</a></code> to register it again.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">init</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">first_name</span>, <span class="va">employee_id</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">self</span><span class="op">$</span><span class="va">first_name</span> <span class="op">&lt;-</span> <span class="va">first_name</span>
-  <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span> <span class="op">&lt;-</span> <span class="va">employee_id</span>
-<span class="op">}</span>
-
-<span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, ..init.. <span class="op">=</span> <span class="va">init</span><span class="op">)</span></code></pre></div>
-<p>Now the class requires two two arguments <code>first_name</code> and
-<code>employee_id</code> to initialize the instance.</p>
+<code class="sourceCode R"><span><span class="va">init</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">first_name</span>, <span class="va">employee_id</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">self</span><span class="op">$</span><span class="va">first_name</span> <span class="op">&lt;-</span> <span class="va">first_name</span></span>
+<span>  <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span> <span class="op">&lt;-</span> <span class="va">employee_id</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">DEMO</span>, ..init.. <span class="op">=</span> <span class="va">init</span><span class="op">)</span></span></code></pre></div>
+<p>Now the class requires two two arguments <code>first_name</code> and <code>employee_id</code> to initialize the instance.</p>
 <p><strong>1.4. Build an instance</strong></p>
-<p>To new and initialize an instance, you need to use the
-<code>instantiate()</code> method. The output will show it is an
-object.</p>
+<p>To new and initialize an instance, you need to use the <code>instantiate()</code> method. The output will show it is an object.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mike</span> <span class="op">&lt;-</span> <span class="va">DEMO</span><span class="op">$</span><span class="fu">instantiate</span><span class="op">(</span><span class="st">"Mike"</span>, <span class="fl">25</span><span class="op">)</span>
-<span class="va">mike</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── &lt;DEMO object&gt;</span></code></pre></div>
-<p><code>first_name</code> and <code>employee_id</code> are stored in
-the object because of the <code>..init..()</code> method.</p>
+<code class="sourceCode R"><span><span class="va">mike</span> <span class="op">&lt;-</span> <span class="va">DEMO</span><span class="op">$</span><span class="fu">instantiate</span><span class="op">(</span><span class="st">"Mike"</span>, <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="va">mike</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ── &lt;DEMO object&gt;</span></span></code></pre></div>
+<p><code>first_name</code> and <code>employee_id</code> are stored in the object because of the <code>..init..()</code> method.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mike</span><span class="op">$</span><span class="va">first_name</span>
-<span class="co">#&gt; [1] "Mike"</span>
-<span class="va">mike</span><span class="op">$</span><span class="va">employee_id</span>
-<span class="co">#&gt; [1] 25</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mike</span><span class="op">$</span><span class="va">first_name</span></span>
+<span><span class="co">#&gt; [1] "Mike"</span></span>
+<span><span class="va">mike</span><span class="op">$</span><span class="va">employee_id</span></span>
+<span><span class="co">#&gt; [1] 25</span></span></code></pre></div>
 <p><strong>1.5. A complete workflow</strong></p>
-<p>It is recommend to write your class definition in a function to make
-debugging easier. The following example new a class <code>DEMO_2</code>,
-defines its own <code>..init..()</code> method, defines a
-<code>get_email()</code> function for retrieving the email address,
-defines its own <code>..str..()</code> method such that when we print
-the object, it will provide us with a nicely formatted summary.</p>
-<p><code>use_method</code> is used to run methods from other classes,
-which in this case, the <code>..str..()</code> method from the
-<code>BASE</code> class.</p>
+<p>It is recommend to write your class definition in a function to make debugging easier. The following example new a class <code>DEMO_2</code>, defines its own <code>..init..()</code> method, defines a <code>get_email()</code> function for retrieving the email address, defines its own <code>..str..()</code> method such that when we print the object, it will provide us with a nicely formatted summary.</p>
+<p><code>use_method</code> is used to run methods from other classes, which in this case, the <code>..str..()</code> method from the <code>BASE</code> class.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">class_DEMO_2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">env</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env</a></span><span class="op">(</span>parent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  
-  <span class="fu"><a href="reference/new_class.html">new_class</a></span><span class="op">(</span>env <span class="op">=</span> <span class="va">env</span>, class_name <span class="op">=</span> <span class="st">"DEMO_2"</span><span class="op">)</span>
-  
-  <span class="va">init_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">first_name</span>, <span class="va">employee_id</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">self</span><span class="op">$</span><span class="va">first_name</span> <span class="op">&lt;-</span> <span class="va">first_name</span>
-    <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span> <span class="op">&lt;-</span> <span class="va">employee_id</span>
-  <span class="op">}</span>
-  
-  <span class="va">get_email_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">self</span><span class="op">$</span><span class="va">first_name</span>, <span class="st">"_"</span>, <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span>, <span class="st">"@company.com"</span><span class="op">)</span>
-  <span class="op">}</span>
-  
-  <span class="va">str_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="reference/use_method.html">use_method</a></span><span class="op">(</span><span class="va">self</span>, <span class="va">BASE</span><span class="op">$</span><span class="va">..str..</span><span class="op">)</span><span class="op">(</span><span class="op">)</span>, 
-          <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Name:"</span>, <span class="va">self</span><span class="op">$</span><span class="va">first_name</span>,
-                <span class="st">"\nEmployee ID:"</span>, <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span>,
-                <span class="st">"\nEmail:"</span>, <span class="va">self</span><span class="op">$</span><span class="fu">get_email</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>, 
-          sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
-  <span class="op">}</span>
-  
-  <span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">env</span>,
-                  ..init.. <span class="op">=</span> <span class="va">init_</span>,
-                  get_email <span class="op">=</span> <span class="va">get_email_</span>,
-                  ..str.. <span class="op">=</span> <span class="va">str_</span><span class="op">)</span>
-  
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">env</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">class_DEMO_2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">env</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env</a></span><span class="op">(</span>parent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="reference/new_class.html">new_class</a></span><span class="op">(</span>env <span class="op">=</span> <span class="va">env</span>, class_name <span class="op">=</span> <span class="st">"DEMO_2"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">init_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">first_name</span>, <span class="va">employee_id</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">self</span><span class="op">$</span><span class="va">first_name</span> <span class="op">&lt;-</span> <span class="va">first_name</span></span>
+<span>    <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span> <span class="op">&lt;-</span> <span class="va">employee_id</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="va">get_email_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">self</span><span class="op">$</span><span class="va">first_name</span>, <span class="st">"_"</span>, <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span>, <span class="st">"@company.com"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="va">str_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="reference/use_method.html">use_method</a></span><span class="op">(</span><span class="va">self</span>, <span class="va">BASE</span><span class="op">$</span><span class="va">..str..</span><span class="op">)</span><span class="op">(</span><span class="op">)</span>, </span>
+<span>          <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Name:"</span>, <span class="va">self</span><span class="op">$</span><span class="va">first_name</span>,</span>
+<span>                <span class="st">"\nEmployee ID:"</span>, <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span>,</span>
+<span>                <span class="st">"\nEmail:"</span>, <span class="va">self</span><span class="op">$</span><span class="fu">get_email</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>          sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="reference/register_method.html">register_method</a></span><span class="op">(</span><span class="va">env</span>,</span>
+<span>                  ..init.. <span class="op">=</span> <span class="va">init_</span>,</span>
+<span>                  get_email <span class="op">=</span> <span class="va">get_email_</span>,</span>
+<span>                  ..str.. <span class="op">=</span> <span class="va">str_</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">env</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DEMO_2</span> <span class="op">&lt;-</span> <span class="fu">class_DEMO_2</span><span class="op">(</span><span class="op">)</span>
-<span class="va">mike</span> <span class="op">&lt;-</span> <span class="va">DEMO_2</span><span class="op">$</span><span class="fu">instantiate</span><span class="op">(</span><span class="st">"Mike"</span>, <span class="fl">25</span><span class="op">)</span>
-<span class="va">mike</span><span class="op">$</span><span class="fu">get_email</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Mike_25@company.com"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">DEMO_2</span> <span class="op">&lt;-</span> <span class="fu">class_DEMO_2</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">mike</span> <span class="op">&lt;-</span> <span class="va">DEMO_2</span><span class="op">$</span><span class="fu">instantiate</span><span class="op">(</span><span class="st">"Mike"</span>, <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="va">mike</span><span class="op">$</span><span class="fu">get_email</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Mike_25@company.com"</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mike</span><span class="op">$</span><span class="fu">..str..</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] "&lt;DEMO_2 object&gt;\nName: Mike \nEmployee ID: 25 \nEmail: Mike_25@company.com"</span>
-<span class="va">mike</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── &lt;DEMO_2 object&gt;</span>
-<span class="co">#&gt; Name: Mike </span>
-<span class="co">#&gt; Employee ID: 25 </span>
-<span class="co">#&gt; Email: Mike_25@company.com</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mike</span><span class="op">$</span><span class="fu">..str..</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "&lt;DEMO_2 object&gt;\nName: Mike \nEmployee ID: 25 \nEmail: Mike_25@company.com"</span></span>
+<span><span class="va">mike</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ── &lt;DEMO_2 object&gt;</span></span>
+<span><span class="co">#&gt; Name: Mike </span></span>
+<span><span class="co">#&gt; Employee ID: 25 </span></span>
+<span><span class="co">#&gt; Email: Mike_25@company.com</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -300,8 +267,7 @@ which in this case, the <code>..str..()</code> method from the
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

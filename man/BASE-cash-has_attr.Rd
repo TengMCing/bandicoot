@@ -12,6 +12,11 @@ True or FALSE.
 \description{
 This function checks whether or not an attribute or method
 exists.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$has_attr(attr_name)
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

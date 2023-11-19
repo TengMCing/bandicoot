@@ -9,14 +9,20 @@
 coverage](https://codecov.io/gh/TengMCing/bandicoot/branch/master/graph/badge.svg)](https://app.codecov.io/gh/TengMCing/bandicoot?branch=master)
 <!-- badges: end -->
 
-The goal of bandicoot is to provide tools for building light-weight
-python-like object oriented system. This system is inspired by the OOP
-systems implemented in [R6](https://github.com/r-lib/R6) and
+The goal of bandicoot is to provide a set of tools for building
+light-weight object oriented system, which has Python-like syntax and
+duner methods for simplicity, but uses static dispatch for less
+overhead. This system also allows multiple inheritances and provides
+Python-like method resolution order for the possibility of implementing
+dynamic dispatch by users.
+
+This system is inspired by the OOP systems implemented in
+[R6](https://github.com/r-lib/R6) and
 [Python](https://github.com/python/cpython).
 
 ## Installation
 
-And the development version from [GitHub](https://github.com/) with:
+Install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -50,9 +56,9 @@ DEMO
 The object is an environment containing some useful attributes and
 methods.
 
--   `OBJECT$..type..` gives the current class name.
--   `OBJECT$..class..` gives the current class name and parent class
-    names.
+- `OBJECT$..type..` gives the current class name.
+- `OBJECT$..class..` gives the current class name and parent class
+  names.
 
 ``` r
 DEMO$..type..
@@ -61,9 +67,9 @@ DEMO$..class..
 #> [1] "DEMO" "BASE"
 ```
 
--   `OBJECT$..dir..()` returns all names of attribute and method of the
-    object.
--   `OBJECT$..methods..()` returns all names of method of the object
+- `OBJECT$..dir..()` returns all names of attribute and method of the
+  object.
+- `OBJECT$..methods..()` returns all names of method of the object
 
 ``` r
 DEMO$..dir..()
@@ -78,10 +84,10 @@ DEMO$..methods..()
 #> [11] "..init.."    "instantiate"
 ```
 
--   `OBJECT$..str..()` returns a string representation of the object,
-    which will be used by the S3 `print()` method. This method usually
-    needs to be overridden in subclass to give short summary of the
-    object.
+- `OBJECT$..str..()` returns a string representation of the object,
+  which will be used by the S3 `print()` method. This method usually
+  needs to be overridden in subclass to give short summary of the
+  object.
 
 ``` r
 DEMO$..str..()

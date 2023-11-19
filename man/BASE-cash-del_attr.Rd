@@ -11,6 +11,11 @@ Return the object itself.
 }
 \description{
 This function delete an attribute.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$del_attr(attr_name)
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

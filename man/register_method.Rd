@@ -8,7 +8,8 @@ register_method(
   env,
   ...,
   container_name = "..method_env..",
-  self_name = "self"
+  self_name = "self",
+  class_name = env$..type..
 )
 }
 \arguments{
@@ -22,6 +23,9 @@ executed inside this container.}
 
 \item{self_name}{Character. Name of the self reference. Methods needs to use
 this name to access the object environment.}
+
+\item{class_name}{Character. Name of the class of the object environment.
+This is important for \code{super()} to resolve the correct parent class.}
 }
 \value{
 Return the object itself.
@@ -55,7 +59,7 @@ e <- new.env()
 e$x <- 1
 
 # Register the method `aa` for environment `e` with `self_name = "self"`
-register_method(e, aa = a, self_name = "self")
+register_method(e, aa = a, self_name = "self", class_name = "test")
 
 # There is an environment `..method_env..` in the environment `e`
 names(e)

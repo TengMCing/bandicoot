@@ -4,7 +4,12 @@
 \alias{copy_attr}
 \title{Copy attributes and methods from classes or instances}
 \usage{
-copy_attr(env, ..., avoid = c("..method_env..", "..init_call.."))
+copy_attr(
+  env,
+  ...,
+  avoid = c("..method_env..", "..init_call.."),
+  class_name = env$..type..
+)
 }
 \arguments{
 \item{env}{Environment. The destination environment.}
@@ -12,6 +17,9 @@ copy_attr(env, ..., avoid = c("..method_env..", "..init_call.."))
 \item{...}{Environments. Source environments.}
 
 \item{avoid}{Character. Names that don't want to be copied.}
+
+\item{class_name}{Character. Name of the class the method is defined.
+This is important for \code{super()} to resolve the correct parent class.}
 }
 \value{
 Return the object itself.

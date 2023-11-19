@@ -1,3 +1,8 @@
+
+# BASE --------------------------------------------------------------------
+
+BASE <- new.env()
+
 #' BASE class environment
 #'
 #' @name BASE
@@ -18,25 +23,69 @@
 #' load-time.
 #' \cr
 #' \cr
-#' Since `bandicoot` does not support dynamic dispatch at the current
-#' implementation, calling the correct parent method can be difficult in a
+#' Since `bandicoot` does not support dynamic dispatch,
+#' calling the correct parent method can be difficult in a
 #' complex class system.
-#' So, users can use the `..mro..` (method resolution order) attribute to
-#' determine the correct call. If users decide to store parent environments in
+#' So, users can use the `..mro..` (method resolution order) attribute and the
+#' [super()] function to determine the correct super/next class.
+#' If users decide to store parent environments in
 #' the derived class such that parent method can be called more handily,
 #' awareness needs to be raised when saving and loading these classes/instances.
 #' It is very likely the same class stored in different objects becomes different
 #' environments.
-#' @format An environment with S3 class `bandicoot_oop`.
-#' @seealso Attributes: [BASE$..type..], [BASE$..class..], [BASE$..method_env..],
-#' [BASE$..instantiated..], [BASE$..mro..], [BASE$..class_tree..], [BASE$..bases..]
-#' \cr
-#' \cr
-#' Methods: [BASE$..dir..], [BASE$..str..], [BASE$..repr..], [BASE$..len..],
-#' [BASE$has_attr], [BASE$get_attr], [BASE$set_attr], [BASE$del_attr],
-#' [BASE$..methods..], [BASE$..init..], [BASE$..new..], [BASE$instantiate]
+#'
+#' @param ... Ignored.
+#' @param env Environment. The instance environment.
+#' @param init_call Call. Contents of the `..init_call...` It is recommended to leave it
+#' as default.
+#' @return An instance environment.
+#'
+#' @details # Class information
+#' ## Attributes
+#' * B:
+#'    * [BASE$..bases..]
+#' * C:
+#'    * [BASE$..class..]
+#'    * [BASE$..class_tree..]
+#' * I:
+#'    * [BASE$..instantiated..]
+#' * M:
+#'    * [BASE$..method_env..]
+#'    * [BASE$..mro..]
+#'
+#' ## Methods
+#' * D:
+#'    * [BASE$del_attr()]
+#'    * [BASE$..dir..()]
+#' * G:
+#'    * [BASE$get_attr()]
+#' * H:
+#'    * [BASE$has_attr()]
+#' * I:
+#'    * [BASE$..init..()]
+#'    * [BASE$instantiate()]
+#' * L:
+#'    * [BASE$..len..()]
+#' * M:
+#'    * [BASE$..methods..()]
+#' * N:
+#'    * [BASE$..new..()]
+#' * R:
+#'    * [BASE$..repr..()]
+#' * S:
+#'    * [BASE$set_attr()]
+#'    * [BASE$..str..()]
+#'
 #' @export
-BASE <- new.env()
+BASE
+
+#' @describeIn BASE Class constructor, same as [BASE$instantiate()].
+#' @export
+base_ <- function(...,
+                  env = new.env(parent = parent.frame()),
+                  init_call = sys.call()) {
+  BASE$instantiate(..., env = env, init_call = init_call)
+}
 
 #' Class name
 #'
@@ -148,6 +197,12 @@ BASE$..instantiated..
 #' @name BASE$..dir..
 #'
 #' @description This function returns all names in the environment.
+#'
+#' ## Usage
+#' ```
+#' BASE$..dir..()
+#' ```
+#'
 #' @return A vector of string.
 #'
 #' @examples
@@ -164,6 +219,12 @@ BASE$..dir..
 #' @name BASE$..str..
 #'
 #' @description This function returns a string representation of the object.
+#'
+#' ## Usage
+#' ```
+#' BASE$..str..()
+#' ```
+#'
 #' @return A string.
 #'
 #' @examples
@@ -186,6 +247,12 @@ BASE$..str..
 #' @description This function returns a "official" string representation of
 #' the object, which may be used to reconstruct the object given an appropriate
 #' environment.
+#'
+#' ## Usage
+#' ```
+#' BASE$..repr..()
+#' ```
+#'
 #' @return A string.
 #'
 #' @examples
@@ -207,6 +274,12 @@ BASE$..repr..
 #' @name BASE$..len..
 #'
 #' @description User could override this method in derived class.
+#'
+#' ## Usage
+#' ```
+#' BASE$..len..()
+#' ```
+#'
 #' @examples
 #'
 #' BASE$..len..()
@@ -225,6 +298,12 @@ BASE$..len..
 #'
 #' @description This function checks whether or not an attribute or method
 #' exists.
+#'
+#' ## Usage
+#' ```
+#' BASE$has_attr(attr_name)
+#' ```
+#'
 #' @param attr_name Character. Attribute name.
 #' @return True or FALSE.
 #'
@@ -240,6 +319,12 @@ BASE$has_attr
 #' @name BASE$get_attr
 #'
 #' @description This function gets the value of an attribute or a method.
+#'
+#' ## Usage
+#' ```
+#' BASE$get_attr(attr_name)
+#' ```
+#'
 #' @param attr_name Character. Attribute name.
 #' @return The attribute value.
 #'
@@ -256,6 +341,12 @@ BASE$get_attr
 #' @name BASE$set_attr
 #'
 #' @description This function sets the value of an attribute or a method.
+#'
+#' ## Usage
+#' ```
+#' BASE$set_attr(attr_name, attr_val)
+#' ```
+#'
 #' @param attr_name Character. Attribute name.
 #' @param attr_val Any value.
 #' @return Return the object itself.
@@ -272,6 +363,12 @@ BASE$set_attr
 #' @name BASE$del_attr
 #'
 #' @description This function delete an attribute.
+#'
+#' ## Usage
+#' ```
+#' BASE$del_attr(attr_name)
+#' ```
+#'
 #' @param attr_name Character. Attribute name.
 #' @return Return the object itself.
 #'
@@ -288,7 +385,13 @@ BASE$del_attr
 #'
 #' @name BASE$..methods..
 #'
-#' @description This function lists all methods of a class or an instance
+#' @description This function lists all methods of a class or an instance.
+#'
+#' ## Usage
+#' ```
+#' BASE$..methods..()
+#' ```
+#'
 #' @return A string vector.
 #'
 #' @examples
@@ -302,6 +405,12 @@ BASE$..methods..
 #'
 #' @description This function will be called after an instance is built. User
 #' could override this function in derived class.
+#'
+#' ## Usage
+#' ```
+#' BASE$..init..(...)
+#' ```
+#'
 #' @param ... Ignored by `BASE`, but user can define their owns.
 #' @return Return the object itself.
 #'
@@ -329,10 +438,15 @@ BASE$..init..
 #' the container, and the instantiate method. Then, the `..init_call..` attribute
 #' will be set to the current system call, and the `..instantiated..` attribute
 #' will be set to `TRUE`. Notice, the `..init..` method will not run.
-#' @param env Environment. The instance environment. Default is
-#' `env = new.env(parent = parent.frame())`.
+#'
+#' ## Usage
+#' ```
+#' BASE$..new..(env = new.env(parent = parent.frame()), init_call = sys.call())
+#' ```
+#'
+#' @param env Environment. The instance environment.
 #' @param init_call Call. Contents of the `..init_call..`. It is recommended to
-#' leave it as default. Default is `init_call = sys.call()`.
+#' leave it as default.
 #' @return An instance environment.
 #'
 #' @examples
@@ -352,10 +466,20 @@ BASE$..new..
 #'
 #' @description This function will new an instance using the `..new..` method,
 #' then initialized the instance with the `..init..` method.
+#'
+#' ## Usage
+#' ```
+#' BASE$instantiate(
+#'   ...,
+#'   env = new.env(parent = parent.frame()),
+#'   init_call = sys.call()
+#' )
+#' ```
+#'
 #' @param ... Arguments passed to `..init..` method.
 #' @param env Environment. The instance environment.
 #' @param init_call Call. Contents of the `..init_call..`. It is recommended to
-#' leave it as default. Default is `init_call = sys.call()`.
+#' leave it as default.
 #' @return An instance environment.
 #'
 #' @examples
@@ -367,7 +491,3 @@ BASE$..new..
 #'
 #' base_instance$..dir..()
 BASE$instantiate
-
-
-
-# BASE2 <- class_BASE2()

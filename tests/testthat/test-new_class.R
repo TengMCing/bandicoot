@@ -4,7 +4,7 @@ test_that("bandicoot::new_class() can create a class", {
 })
 
 test_that("bandicoot::new_class() can create a class with manually specified BASE", {
-  a <- bandicoot::new_class(BASE, class_name = "test")
+  a <- bandicoot::new_class(bandicoot::BASE, class_name = "test")
   expect_equal(a$..str..(), "<test class>")
 })
 
@@ -20,7 +20,7 @@ test_that("bandicoot::new_class() can inherit from two classes and the left clas
   a <- bandicoot::new_class(derived, bandicoot::BASE, class_name = "test")
   expect_equal(a$..str..(), "<test class>")
   expect_equal(a$..init..(), "test")
-  expect_equal(a$..class.., c("test", "derived", "BASE", "BASE"))
+  expect_equal(a$..class.., c("test", "derived", "BASE"))
 })
 
 test_that("bandicoot::new_class() can detect no class name is provided", {

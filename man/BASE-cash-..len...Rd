@@ -5,6 +5,11 @@
 \title{Length of the class or the instance}
 \description{
 User could override this method in derived class.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..len..()
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

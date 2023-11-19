@@ -8,6 +8,11 @@ A vector of string.
 }
 \description{
 This function returns all names in the environment.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..dir..()
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

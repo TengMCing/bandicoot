@@ -1,40 +1,69 @@
 
-# Python dunder method ----------------------------------------------------
+# Python dunder methods ---------------------------------------------------
 
 # Before implement this methods, check the documentation such that the behaviours are similar.
+# Implementation order: 0: Implemented 1: recently, 2: later, 3: even later, 4: never
 
 # a
 
-# -[] __annotations__: this is the attribute for "type hints" in Python. A very promising attribute. Could be used in the future for type-checking system.
-# -[] __anext__: Async related method. Will not be considered.
-# -[] __add__: x + y. Could be implemented using `+.bandicoot`.
-# -[] __and__: x & y. Could be implemented using `&.bandicoot`.
-# -[] __abs__: abs(x). Could be implemented using `abs.bandicoot`.
-# -[] __await__: Async related method. Will not be considered.
-# -[] __aiter__: Async related method. Will not be considered.
-# -[] __aenter__: Async related method. Will not be considered.
-# -[] __aexit__: Async related method. Will not be considered.
+# -[4] __annotations__: this is the attribute for "type hints" in Python. A very promising attribute. Could be used in the future for type-checking system.
+# -[4] __anext__: Async related method. Will not be considered.
+# -[1] __add__: x + y. Could be implemented using `+.bandicoot`.
+# -[2] __and__: x & y. Could be implemented using `&.bandicoot`.
+# -[2] __abs__: abs(x). Could be implemented using `abs.bandicoot`.
+# -[4] __await__: Async related method. Will not be considered.
+# -[4] __aiter__: Async related method. Will not be considered.
+# -[4] __aenter__: Async related method. Will not be considered.
+# -[4] __aexit__: Async related method. Will not be considered.
 
 # b
 
-# -[] __bases__: A tuple containing the base classes, in the order of their occurrence in the base class list. Python read-only attributes. Will not be considered.
-# -[] __bytes__: bytes(x). Could be implemented using `bytes.bandicoot`.
-# -[] __bool__: bool(x). Could be implemented using `bool.bandicoot`.
+# -[4] __bases__: A tuple containing the base classes, in the order of their occurrence in the base class list. Python read-only attributes. Will not be considered.
+# -[3] __bytes__: bytes(x). Could be implemented using `bytes.bandicoot`.
+# -[2] __bool__: bool(x). Could be implemented using `bool.bandicoot`.
 
 # c
 
-# -[] __code__: The code object representing the compiled function body. Will not be considered.
-# -[] __closure__: Python read-only attribute. Will not be considered.
-# -[] __call__: Not easy to implement in R.
-# -[] __class__: The class of an instance. Currently implemented as a character vector.
-# -[] __class_getitem__: Designed for type hints. Will not be considered.
-# -[] __contains__: x in y. Could be implemented using `%contains%.bandicoot`.
-# -[] __complex__: complex(x). Will not be considered.
-# -[] __ceil__: ceil(x). Could be implemented using `complex.bandicoot`.
-# -[] __doc__: The function's documentation string. Will not be considered.
-# -[] __defaults__: Default arguments. Will not be considered.
-# -[] __dict__: The namespace supporting arbitrary function attributes. Will only be implemented using `..dict..`.
-# -
+# -[4] __code__: The code object representing the compiled function body. Will not be considered.
+# -[4] __closure__: Python read-only attribute. Will not be considered.
+# -[4] __call__: Not easy to implement in R. Will not be considerd.
+# -[1] __class__: The class of an instance. Currently implemented as a character vector.
+# -[4] __class_getitem__: Designed for type hints. Will not be considered.
+# -[1] __contains__: x in y. Could be implemented using `%contains%.bandicoot`.
+# -[4] __complex__: complex(x). Will not be considered.
+# -[2] __ceil__: ceil(x). Could be implemented using `complex.bandicoot`.
+
+# d
+
+# -[4] __doc__: The function's documentation string. Will not be considered.
+# -[4] __defaults__: Default arguments. Will not be considered.
+# -[4] __dict__: The namespace supporting arbitrary function attributes. Will not be considered.
+# -[1] __delattr__: Way to delete an attribute. Will not be considered, but will provide a way for user to delete attributes.
+# -[4] __del__: Infamous for some unpredictable behaviours. Will not be considered.
+# -[0] __dir__: The list of names in the current local scope. Will only be implemented using `..dir..`.
+# -[4] __delete__: Way to delete an attribute after an attribute is found.
+# -[2] __delitem__: Way to delete item in a container. Will not be considered, but will provide a way for user to delete items.
+# -[3] __divmod__: Take two numbers as arguments and return a pair of numbers consisting of their quotient and remainder. Could be implemented using `divmod.bandicoot`.
+
+# e
+
+# -[1] __eq__: x == y. Could be implemented using `==.bandicoot`.
+# -[1] __enter__: Context manger enter method. Could be implemented using `with_as.bandicoot`.
+# -[1] __exit__: Context manger enter method. Could be implemented using `with_as.bandicoot`.
+# -[4] __func__: The function object. Will not be considered.
+# -[4] __file__: The pathname of the file. Will not be considered.
+# -[2] __format__: format(x). Could be implemented using `format.bandicoot`.
+# -[3] __floordiv__: x // y. Could be implemented using `%/%.bandicoot`.
+# -[3] __float__: float(x). Could be implemented using `float.bandicoot.
+# -[3] __floor__: floor(x). Could be implemented using `floor.bandicoot`.
+
+# g
+
+# -[4] __globals__: Global namespace. Will not be considered.
+# -[4] __getattr__: Way to lookup attribute if __getattribute__ doesn't work. Will not be considered.
+# -[2] __getitem__: Way to access item in container. Could be implemented using `[.bandiccot`.
+# -[1] __gt__: x > y. Could be implemented using `>.bandiccot`.
+# -[1] __ge__: x >= y. Could be implemented using `>=.bandiccot`.
 
 
 # print.bandicoot_oop -----------------------------------------------------

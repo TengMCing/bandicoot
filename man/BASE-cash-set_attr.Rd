@@ -13,6 +13,11 @@ Return the object itself.
 }
 \description{
 This function sets the value of an attribute or a method.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$set_attr(attr_name, attr_val)
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

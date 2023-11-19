@@ -11,6 +11,11 @@ The attribute value.
 }
 \description{
 This function gets the value of an attribute or a method.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$get_attr(attr_name)
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

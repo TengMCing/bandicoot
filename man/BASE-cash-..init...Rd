@@ -12,6 +12,11 @@ Return the object itself.
 \description{
 This function will be called after an instance is built. User
 could override this function in derived class.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..init..(...)
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

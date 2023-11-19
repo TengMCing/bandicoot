@@ -4,11 +4,10 @@
 \alias{BASE$..new..}
 \title{Build a new instance from a class or an instance}
 \arguments{
-\item{env}{Environment. The instance environment. Default is
-\code{env = new.env(parent = parent.frame())}.}
+\item{env}{Environment. The instance environment.}
 
 \item{init_call}{Call. Contents of the \code{..init_call..}. It is recommended to
-leave it as default. Default is \code{init_call = sys.call()}.}
+leave it as default.}
 }
 \value{
 An instance environment.
@@ -18,6 +17,11 @@ This function will copy all methods and attributes, except
 the container, and the instantiate method. Then, the \code{..init_call..} attribute
 will be set to the current system call, and the \code{..instantiated..} attribute
 will be set to \code{TRUE}. Notice, the \code{..init..} method will not run.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..new..(env = new.env(parent = parent.frame()), init_call = sys.call())
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

@@ -9,7 +9,7 @@
 \item{env}{Environment. The instance environment.}
 
 \item{init_call}{Call. Contents of the \code{..init_call..}. It is recommended to
-leave it as default. Default is \code{init_call = sys.call()}.}
+leave it as default.}
 }
 \value{
 An instance environment.
@@ -17,6 +17,15 @@ An instance environment.
 \description{
 This function will new an instance using the \code{..new..} method,
 then initialized the instance with the \code{..init..} method.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$instantiate(
+  ...,
+  env = new.env(parent = parent.frame()),
+  init_call = sys.call()
+)
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 
