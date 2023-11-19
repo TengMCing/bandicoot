@@ -10,6 +10,11 @@ A string.
 This function returns a "official" string representation of
 the object, which may be used to reconstruct the object given an appropriate
 environment.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..repr..()
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

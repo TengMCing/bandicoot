@@ -8,6 +8,11 @@ A string.
 }
 \description{
 This function returns a string representation of the object.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..str..()
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 

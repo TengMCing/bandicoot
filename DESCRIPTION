@@ -1,7 +1,7 @@
 Package: bandicoot
 Type: Package
 Title: Tools for building light-weight python-like object oriented system
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Weihao",
            family = "Li",

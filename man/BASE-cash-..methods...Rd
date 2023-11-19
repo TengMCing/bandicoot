@@ -7,7 +7,12 @@
 A string vector.
 }
 \description{
-This function lists all methods of a class or an instance
+This function lists all methods of a class or an instance.
+\subsection{Usage}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{BASE$..methods..()
+}\if{html}{\out{</div>}}
+}
 }
 \examples{
 
