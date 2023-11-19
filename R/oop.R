@@ -422,7 +422,7 @@ use_method <- function(env, fn, container_name = "..method_env..") {
 #'
 #' Note that this function assumes the parent class can be found in the
 #' parent environment of the current object. If one wants to find the
-#' parent class from a package, it needs to be specified via the `package`
+#' parent class from a package, it needs to be specified via the `where`
 #' argument.
 #'
 #' @param self_name Character. The name of the self reference.
@@ -435,39 +435,72 @@ use_method <- function(env, fn, container_name = "..method_env..") {
 #'
 #' @examples
 #'
-#' # Define class A
-#' A <- new_class(class_name = "A")
-#' register_method(A, foo = function() {
-#'   print("class A `foo` method")
-#'   print(self$..type..)
+#' # Define class O
+#' O <- new_class(class_name = "O")
+#' register_method(O, foo = function() {
+#'   print("Calling class O `foo` method")
+#'   print(paste0("Self is ", self$my_name))
+#'   print(paste0("Next class is ", super()$..type..))
 #' })
 #'
-#' # Define class B
-#' B <- new_class(A, class_name = "B")
-#' register_method(B, foo = function() {
+#' # Define class F
+#' F <- new_class(O, class_name = "F")
+#' register_method(F, foo = function() {
+#'   print("Calling class F `foo` method")
+#'   print(paste0("Self is ", self$my_name))
+#'   print(paste0("Next class is ", super()$..type..))
 #'   use_method(self, super()$foo)()
-#'   print("class B `foo` method")
-#'   print(super()$..type..)
-#'   print(self$..type..)
 #' })
 #'
-#' # Define class C
-#' C <- new_class(A, class_name = "C")
-#' register_method(C, foo = function() {
+#' # Define class E
+#' E <- new_class(O, class_name = "E")
+#' register_method(E, foo = function() {
+#'   print("Calling class E `foo` method")
+#'   print(paste0("Next class is ", super()$..type..))
 #'   use_method(self, super()$foo)()
-#'   print("class C `foo` method")
-#'   print(super()$..type..)
-#'   print(self$..type..)
 #' })
 #'
 #' # Define class D
-#' D <- new_class(B, C, class_name = "D")
+#' D <- new_class(O, class_name = "D")
 #' register_method(D, foo = function() {
+#'   print("Calling class D `foo` method")
+#'   print(paste0("Self is ", self$my_name))
+#'   print(paste0("Next class is ", super()$..type..))
 #'   use_method(self, super()$foo)()
-#'   print("class D `foo` method")
-#'   print(super()$..type..)
-#'   print(self$..type..)
 #' })
+#'
+#' # Define class C
+#' C <- new_class(D, F, class_name = "C")
+#' register_method(C, foo = function() {
+#'   print("Calling class C `foo` method")
+#'   print(paste0("Self is ", self$my_name))
+#'   print(paste0("Next class is ", super()$..type..))
+#'   use_method(self, super()$foo)()
+#' })
+#'
+#' # Define class B
+#' B <- new_class(E, D, class_name = "B")
+#' register_method(B, foo = function() {
+#'   print("Calling class B `foo` method")
+#'   print(paste0("Self is ", self$my_name))
+#'   print(paste0("Next class is ", super()$..type..))
+#'   use_method(self, super()$foo)()
+#' })
+#'
+#' # Define class A
+#' A <- new_class(B, C, class_name = "A")
+#' register_method(A, foo = function() {
+#'   print("Calling class A `foo` method")
+#'   print(paste0("Self is ", self$my_name))
+#'   print(paste0("Next class is ", super()$..type..))
+#'   use_method(self, super()$foo)()
+#' })
+#'
+#' # To understand why the order is A, B, E, C, D, F, O,
+#' # please check [https://www.python.org/download/releases/2.3/mro/].
+#' a <- A$instantiate()
+#' a$my_name <- "a"
+#' a$foo()
 #'
 #'
 #' @export
@@ -487,7 +520,7 @@ super <- function(self_name = "self", mro_current_name = "..mro_current..", wher
   if (is.null(where)) {
     next_class_object <- eval(as.symbol(next_class), envir = parent.env(env))
   } else if (is.character(where)) {
-    next_class_object <- getFromNamespace(next_class, where)
+    next_class_object <- utils::getFromNamespace(next_class, where)
   } else if (is.environment(where)) {
     next_class_object <- eval(as.symbol(next_class), envir = where)
   } else {
