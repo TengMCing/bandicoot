@@ -414,7 +414,64 @@ use_method <- function(env, fn, container_name = "..method_env..") {
 
 # super -------------------------------------------------------------------
 
-super <- function(self_name = "self", mro_current_name = "..mro_current..") {
+#' Get the parent class (the next class based on the method resolution order)
+#'
+#' This function gets the parent class or the next class based on the method
+#' resolution order. This is useful when one wants to access the overwritten
+#' parent class method or the overwritten parent class attribute.
+#'
+#' Note that this function assumes the parent class can be found in the
+#' parent environment of the current object. If one wants to find the
+#' parent class from a package, it needs to be specified via the `package`
+#' argument.
+#'
+#' @param self_name Character. The name of the self reference.
+#' @param mro_current_name Character. The name of the variable storing
+#' the current class. This is used to determine the next class.
+#' @param where Environment/Character. The target environment to search for the
+#' parent class. If `where == NULL`, the parent environment of self will be used.
+#' If a character value is provided, the package with the same name will be used.
+#' @return A `bandicoot` object which is an environment.
+#'
+#' @examples
+#'
+#' # Define class A
+#' A <- new_class(class_name = "A")
+#' register_method(A, foo = function() {
+#'   print("class A `foo` method")
+#'   print(self$..type..)
+#' })
+#'
+#' # Define class B
+#' B <- new_class(A, class_name = "B")
+#' register_method(B, foo = function() {
+#'   use_method(self, super()$foo)()
+#'   print("class B `foo` method")
+#'   print(super()$..type..)
+#'   print(self$..type..)
+#' })
+#'
+#' # Define class C
+#' C <- new_class(A, class_name = "C")
+#' register_method(C, foo = function() {
+#'   use_method(self, super()$foo)()
+#'   print("class C `foo` method")
+#'   print(super()$..type..)
+#'   print(self$..type..)
+#' })
+#'
+#' # Define class D
+#' D <- new_class(B, C, class_name = "D")
+#' register_method(D, foo = function() {
+#'   use_method(self, super()$foo)()
+#'   print("class D `foo` method")
+#'   print(super()$..type..)
+#'   print(self$..type..)
+#' })
+#'
+#'
+#' @export
+super <- function(self_name = "self", mro_current_name = "..mro_current..", where = NULL) {
 
   env <- eval(as.symbol(self_name), envir = parent.frame())
   current_class <- eval(as.symbol(mro_current_name), envir = parent.frame())
@@ -426,8 +483,16 @@ super <- function(self_name = "self", mro_current_name = "..mro_current..") {
   # Get the next class name
   next_class <- env$..mro..[which(current_class == env$..mro..) + 1]
 
-  # Try to evaluate it in the parent environment
-  next_class_object <- eval(as.symbol(next_class), envir = parent.env(env))
+  # Try to get the parent class
+  if (is.null(where)) {
+    next_class_object <- eval(as.symbol(next_class), envir = parent.env(env))
+  } else if (is.character(where)) {
+    next_class_object <- getFromNamespace(next_class, where)
+  } else if (is.environment(where)) {
+    next_class_object <- eval(as.symbol(next_class), envir = where)
+  } else {
+    stop("The argument `where` is not an environment or a character!")
+  }
 
   is_bandicoot_oop(next_class_object)
 
