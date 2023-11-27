@@ -177,8 +177,12 @@ retrieving the email address, defines its own `..str..()` method such
 that when we print the object, it will provide us with a nicely
 formatted summary.
 
-`use_method` is used to run methods from other classes, which in this
-case, the `..str..()` method from the `BASE` class.
+`super()` returns the next class of the method resolution order, which
+will always be the parent class in single inheritance, but not necessary
+in multiple inheritance.
+
+`use_method()` is used to run methods from other classes, which in this
+case, the `..str..()` method from the parent class (`BASE`).
 
 ``` r
 class_DEMO_2 <- function(env = new.env(parent = parent.frame())) {
@@ -195,7 +199,7 @@ class_DEMO_2 <- function(env = new.env(parent = parent.frame())) {
   }
   
   str_ <- function() {
-    paste(use_method(self, BASE$..str..)(), 
+    paste(use_method(self, super()$..str..)(), 
           paste("Name:", self$first_name,
                 "\nEmployee ID:", self$employee_id,
                 "\nEmail:", self$get_email()), 
