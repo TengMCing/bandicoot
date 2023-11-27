@@ -195,14 +195,37 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
     # Check whether it is a function
     if (!is.function(eval_fn)) stop("`", as.expression(fn_list[[i]]), "` is not a function!")
 
-    # Modify the arguments of the function, such that it is clear which class the function belongs to
-    eval_fn_formals <- formals(eval_fn)
-    if ("..mro_current.." %in% names(eval_fn_formals)) {
-      eval_fn_formals[["..mro_current.."]] <- class_name
-    } else {
-      eval_fn_formals <- append(eval_fn_formals, list(..mro_current.. = class_name))
+    # Prepare the assignment expression
+    set_mro_current <- substitute(..mro_current.. <- class_name,
+                                  list(class_name = class_name))
+
+    # Get the function body
+    body_list <- as.list(body(eval_fn))
+    mro_current_exist <- FALSE
+
+    if (length(body_list) > 1) {
+      # Get the second expression
+      second_expr <- as.list(body_list[[2]])
+
+      # If the second expression is of the form `..mro_current.. <- class_name`
+      # Modify the expression to represent the correct current class
+      if (identical(second_expr[[1]], as.symbol("<-")) &&
+          identical(second_expr[[2]], as.symbol("..mro_current.."))) {
+
+        mro_current_exist <- TRUE
+        body_list[[2]] <- set_mro_current
+        body(eval_fn) <- as.call(body_list)
+
+      }
     }
-    formals(eval_fn) <- eval_fn_formals
+
+    if (!mro_current_exist) {
+      # Set `..mro_current.. <- class_name` as the first expression of the function body
+      # This makes it clear which class the function belongs to
+      body(eval_fn) <- substitute({set_mro_current; original},
+                                  list(set_mro_current = set_mro_current,
+                                       original = body(eval_fn)))
+    }
 
     # Bind it to the container of the instance environment
     env[[fn_names[i]]] <- eval_fn
