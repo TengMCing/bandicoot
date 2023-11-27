@@ -90,9 +90,12 @@ could override this function in derived class.</p><div class="section">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">BASE</span><span class="op">$</span><span class="va">..init..</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function (..., ..mro_current.. = "BASE") </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> return(invisible(self))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x14430fc18&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function (...) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ..mro_current.. &lt;- "BASE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     return(invisible(self))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: 0x11c16ca40&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Inherit from BASE</span></span></span>
 <span class="r-in"><span><span class="va">TEST</span> <span class="op">&lt;-</span> <span class="fu"><a href="new_class.html">new_class</a></span><span class="op">(</span><span class="va">BASE</span>, class_name <span class="op">=</span> <span class="st">"TEST"</span><span class="op">)</span></span></span>

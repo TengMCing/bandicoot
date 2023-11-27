@@ -172,7 +172,8 @@
 <span><span class="co">#&gt; [1] 25</span></span></code></pre></div>
 <p><strong>1.5. A complete workflow</strong></p>
 <p>It is recommend to write your class definition in a function to make debugging easier. The following example new a class <code>DEMO_2</code>, defines its own <code>..init..()</code> method, defines a <code>get_email()</code> function for retrieving the email address, defines its own <code>..str..()</code> method such that when we print the object, it will provide us with a nicely formatted summary.</p>
-<p><code>use_method</code> is used to run methods from other classes, which in this case, the <code>..str..()</code> method from the <code>BASE</code> class.</p>
+<p><code><a href="reference/super.html">super()</a></code> returns the next class of the method resolution order, which will always be the parent class in single inheritance, but not necessary in multiple inheritance.</p>
+<p><code><a href="reference/use_method.html">use_method()</a></code> is used to run methods from other classes, which in this case, the <code>..str..()</code> method from the parent class (<code>BASE</code>).</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">class_DEMO_2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">env</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env</a></span><span class="op">(</span>parent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  </span>
@@ -188,7 +189,7 @@
 <span>  <span class="op">}</span></span>
 <span>  </span>
 <span>  <span class="va">str_</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="reference/use_method.html">use_method</a></span><span class="op">(</span><span class="va">self</span>, <span class="va">BASE</span><span class="op">$</span><span class="va">..str..</span><span class="op">)</span><span class="op">(</span><span class="op">)</span>, </span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="reference/use_method.html">use_method</a></span><span class="op">(</span><span class="va">self</span>, <span class="fu"><a href="reference/super.html">super</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">..str..</span><span class="op">)</span><span class="op">(</span><span class="op">)</span>, </span>
 <span>          <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Name:"</span>, <span class="va">self</span><span class="op">$</span><span class="va">first_name</span>,</span>
 <span>                <span class="st">"\nEmployee ID:"</span>, <span class="va">self</span><span class="op">$</span><span class="va">employee_id</span>,</span>
 <span>                <span class="st">"\nEmail:"</span>, <span class="va">self</span><span class="op">$</span><span class="fu">get_email</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>, </span>
