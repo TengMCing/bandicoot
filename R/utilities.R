@@ -2,7 +2,7 @@
 
 #' Load functions from package namespaces into current environment
 #'
-#' This function loads functions from package namespaces via `::` and
+#' This function loads functions from package namespaces and
 #' assigns them to the preferred function names in the current environment.
 #'
 #' Preferred function names can be provide via named arguments
@@ -48,9 +48,7 @@ define_pkg_fn <- function(pkg, ...) {
     # Arguments in `...` must be symbols
     if (!is.symbol(fn_list[[i]]) && !is.character(fn_list[[i]])) stop("`", as.expression(fn_list[[i]]), "` is not a symbol or a character!")
 
-    # `Base` an `sum` are not used, they are here to pass the CMD check
-    eval(substitute(`::`(base, sum),
-                    list(base = pkg, sum = fn_list[[i]])))
+    get(fn_list[[i]], getNamespace(pkg))
   })
 
   names(assign_list) <- pref_names
@@ -168,16 +166,6 @@ sub_fn_body_name <- function(fn, old_name, new_name) {
 
   return(fn)
 }
-
-
-# import_bandicoot --------------------------------------------------------
-
-
-# Create names of functions that other packages may need to use
-
-oop_dependencies <- c("register_method", "use_method", "copy_attr", "new_class", "bind_fn_2_env")
-
-base_dependencies <- append(list("BASE", "base_"), oop_dependencies)
 
 
 # check_method ------------------------------------------------------------

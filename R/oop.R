@@ -660,45 +660,6 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
 # nocov end
 
 
-# import_bandicoot --------------------------------------------------------
-
-
-#' Load functions from the bandicoot into target environment
-#'
-#' This function is critical when other packages want to use the bandicoot OOP
-#' system. Since this OOP system is based on environment, any instance will only
-#' run on the environment they defined. So, function like [use_method] which
-#' only exists in the package environment can not be accessed by the instance,
-#' unless the function has been loaded into the current environment by calling
-#' `use_method <- bandicoot::use_method`, or `require(bandicoot)` or
-#' `library(bandicoot)`. This issue can usually be addressed by
-#' using the package name directly inside the method body like
-#' `this_method <- function() bandicoot::use_method()`. However, if it is not
-#' possible, then this function helps loads corresponding function into target
-#' environment.
-#'
-#' This function will call [define_pkg_fn].
-#'
-#' @param env Environment. The target environment.
-#' @param import_oop Boolean. Whether or not to import OOP tools.
-#' @param import_base Boolean. Whether or not to import BASE class.
-#' @return No return value, called for side effects.
-#'
-#' @export
-import_bandicoot <- function(env = parent.frame(),
-                             import_oop = TRUE,
-                             import_base = TRUE) {
-  final_list <- list()
-
-  if (import_oop) final_list <- append(final_list, oop_dependencies)
-  if (import_base) final_list <- append(final_list, base_dependencies)
-
-  do.call(define_pkg_fn, append(list(pkg = "bandicoot"), final_list),
-          envir = env)
-}
-
-
-
 # is_bandicoot_oop --------------------------------------------------------
 
 
