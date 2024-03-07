@@ -77,6 +77,29 @@
 <p>Depends on the method.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">COMPANY</span> <span class="op">&lt;-</span> <span class="fu"><a href="new_class.html">new_class</a></span><span class="op">(</span>class_name <span class="op">=</span> <span class="st">"COMPANY"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">company</span> <span class="op">&lt;-</span> <span class="va">COMPANY</span><span class="op">$</span><span class="va">instantiate</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="register_method.html">register_method</a></span><span class="op">(</span><span class="va">COMPANY</span>,</span></span>
+<span class="r-in"><span>                ..init.. <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">name</span>, <span class="va">age</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>                  <span class="va">self</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="va">name</span></span></span>
+<span class="r-in"><span>                  <span class="va">self</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="va">age</span></span></span>
+<span class="r-in"><span>                <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="register_method.html">register_method</a></span><span class="op">(</span><span class="va">COMPANY</span>,</span></span>
+<span class="r-in"><span>                ..isub.. <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>                  <span class="va">self</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="va">self</span><span class="op">$</span><span class="va">age</span><span class="op">[</span><span class="va">self</span><span class="op">$</span><span class="va">name</span> <span class="op">!=</span> <span class="va">y</span><span class="op">]</span></span></span>
+<span class="r-in"><span>                  <span class="va">self</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="va">self</span><span class="op">$</span><span class="va">name</span><span class="op">[</span><span class="va">self</span><span class="op">$</span><span class="va">name</span> <span class="op">!=</span> <span class="va">y</span><span class="op">]</span></span></span>
+<span class="r-in"><span>                <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">good_company</span> <span class="op">&lt;-</span> <span class="fu">company</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"patrick"</span>, <span class="st">"james"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">33</span>, <span class="fl">34</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">good_company</span> <span class="op">%-=%</span> <span class="st">"patrick"</span></span></span>
+<span class="r-in"><span><span class="va">good_company</span><span class="op">$</span><span class="va">name</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "james"</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

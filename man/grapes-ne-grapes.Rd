@@ -17,3 +17,14 @@ A Boolean value.
 \description{
 The not equals to operator
 }
+\examples{
+AGE <- new_class(class_name = "AGE")
+age <- AGE$instantiate
+register_method(AGE, ..init.. = function(current) self$current = current)
+register_method(AGE, ..ne.. = function(y) self$current != y$current)
+
+patrick <- age(33)
+james <- age(33)
+patrick \%ne\% james
+
+}

@@ -17,3 +17,19 @@ A Boolean value.
 \description{
 Membership test operator
 }
+\examples{
+COMPANY <- new_class(class_name = "COMPANY")
+company <- COMPANY$instantiate
+register_method(COMPANY,
+                ..init.. = function(name, age) {
+                  self$name <- name
+                  self$age <- age
+                })
+register_method(COMPANY,
+                ..contains.. = function(y) y \%in\% self$name)
+
+good_company <- company(c("patrick", "james"),
+                        c(33, 34))
+good_company \%contains\% "patrick"
+
+}

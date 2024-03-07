@@ -17,3 +17,13 @@ An integer.
 \description{
 Compute the length of the object
 }
+\examples{
+EMAIL <- new_class(class_name = "EMAIL")
+email <- EMAIL$instantiate
+register_method(EMAIL, ..init.. = function(address) self$address = address)
+register_method(EMAIL, ..len.. = function() nchar(self$address))
+
+patrick <- email('patrick@test.com')
+len(patrick)
+
+}

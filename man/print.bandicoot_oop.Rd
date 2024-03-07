@@ -18,3 +18,6 @@ No return value, called for side effects.
 This function print the string representation of the object by using the
 \code{..str..()} method.
 }
+\examples{
+print(base_())
+}

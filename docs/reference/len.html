@@ -77,6 +77,19 @@
 <p>An integer.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">EMAIL</span> <span class="op">&lt;-</span> <span class="fu"><a href="new_class.html">new_class</a></span><span class="op">(</span>class_name <span class="op">=</span> <span class="st">"EMAIL"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">email</span> <span class="op">&lt;-</span> <span class="va">EMAIL</span><span class="op">$</span><span class="va">instantiate</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="register_method.html">register_method</a></span><span class="op">(</span><span class="va">EMAIL</span>, ..init.. <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">address</span><span class="op">)</span> <span class="va">self</span><span class="op">$</span><span class="va">address</span> <span class="op">=</span> <span class="va">address</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="register_method.html">register_method</a></span><span class="op">(</span><span class="va">EMAIL</span>, ..len.. <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">self</span><span class="op">$</span><span class="va">address</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">patrick</span> <span class="op">&lt;-</span> <span class="fu">email</span><span class="op">(</span><span class="st">'patrick@test.com'</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">len</span><span class="op">(</span><span class="va">patrick</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 16</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

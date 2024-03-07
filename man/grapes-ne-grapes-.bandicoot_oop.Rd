@@ -19,3 +19,14 @@ A Boolean value.
 This function performs the not equals to operator using the \code{..ne..()} method.
 If it is not applicable, error will be raised.
 }
+\examples{
+AGE <- new_class(class_name = "AGE")
+age <- AGE$instantiate
+register_method(AGE, ..init.. = function(current) self$current = current)
+register_method(AGE, ..ne.. = function(y) self$current != y$current)
+
+patrick <- age(33)
+james <- age(33)
+patrick \%ne\% james
+
+}

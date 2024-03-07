@@ -17,3 +17,23 @@ Depends on the method.
 \description{
 Subtraction operator
 }
+\examples{
+COMPANY <- new_class(class_name = "COMPANY")
+company <- COMPANY$instantiate
+register_method(COMPANY,
+                ..init.. = function(name, age) {
+                  self$name <- name
+                  self$age <- age
+                })
+register_method(COMPANY,
+                ..sub.. = function(y) {
+                  company(self$name[self$name != y],
+                          self$age[self$name != y])
+                })
+
+good_company <- company(c("patrick", "james"),
+                        c(33, 34))
+new_company <- good_company \%-\% "patrick"
+new_company$name
+
+}

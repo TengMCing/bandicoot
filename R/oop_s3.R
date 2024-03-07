@@ -76,6 +76,8 @@
 #' @param x `bandicoot_oop` object.
 #' @param ... ignored.
 #' @return No return value, called for side effects.
+#' @examples
+#' print(base_())
 #' @export
 print.bandicoot_oop <- function(x, ...) {
   if ("..str.." %in% names(x)) {
@@ -95,6 +97,14 @@ print.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param ... Additional arguments needed for computing the length.
 #' @return An integer.
+#' @examples
+#' EMAIL <- new_class(class_name = "EMAIL")
+#' email <- EMAIL$instantiate
+#' register_method(EMAIL, ..init.. = function(address) self$address = address)
+#' register_method(EMAIL, ..len.. = function() nchar(self$address))
+#'
+#' patrick <- email('patrick@test.com')
+#' len(patrick)
 #'
 #' @export
 len <- function(x, ...) {
@@ -109,6 +119,15 @@ len <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param ... ignored.
 #' @return An integer.
+#' @examples
+#' EMAIL <- new_class(class_name = "EMAIL")
+#' email <- EMAIL$instantiate
+#' register_method(EMAIL, ..init.. = function(address) self$address = address)
+#' register_method(EMAIL, ..len.. = function() nchar(self$address))
+#'
+#' patrick <- email('patrick@test.com')
+#' len(patrick)
+#'
 #' @export
 len.bandicoot_oop <- function(x, ...) {
   if ("..len.." %in% names(x)) {
@@ -131,6 +150,13 @@ len.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param ... Additional arguments needed for computing the string.
 #' @return A string.
+#' @examples
+#' EMAIL <- new_class(class_name = "EMAIL")
+#' email <- EMAIL$instantiate
+#' register_method(EMAIL, ..init.. = function(address) self$address = address)
+#'
+#' patrick <- email('patrick@test.com')
+#' repr(patrick)
 #'
 #' @export
 repr <- function(x, ...) {
@@ -147,6 +173,14 @@ repr <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param ... ignored.
 #' @return An integer.
+#' @examples
+#' EMAIL <- new_class(class_name = "EMAIL")
+#' email <- EMAIL$instantiate
+#' register_method(EMAIL, ..init.. = function(address) self$address = address)
+#'
+#' patrick <- email('patrick@test.com')
+#' repr(patrick)
+#'
 #' @export
 repr.bandicoot_oop <- function(x, ...) {
   if ("..repr.." %in% names(x)) {
@@ -164,6 +198,25 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..lt.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name < y$first_name)
+#'                   }
+#'                   return(self$last_name < self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %lt% james
 #'
 #' @export
 `%lt%` <- function(x, y) {
@@ -179,6 +232,26 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..lt.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name < y$first_name)
+#'                   }
+#'                   return(self$last_name < self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %lt% james
+#'
 #' @export
 `%lt%.bandicoot_oop` <- function(x, y) {
   if ("..lt.." %in% names(x)) {
@@ -195,6 +268,25 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..le.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name <= y$first_name)
+#'                   }
+#'                   return(self$last_name <= self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %le% james
 #'
 #' @export
 `%le%` <- function(x, y) {
@@ -210,6 +302,26 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..le.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name <= y$first_name)
+#'                   }
+#'                   return(self$last_name <= self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %le% james
+#'
 #' @export
 `%le%.bandicoot_oop` <- function(x, y) {
   if ("..le.." %in% names(x)) {
@@ -227,6 +339,25 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..gt.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name > y$first_name)
+#'                   }
+#'                   return(self$last_name > self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %gt% james
 #'
 #' @export
 `%gt%` <- function(x, y) {
@@ -242,6 +373,26 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..gt.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name > y$first_name)
+#'                   }
+#'                   return(self$last_name > self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %gt% james
+#'
 #' @export
 `%gt%.bandicoot_oop` <- function(x, y) {
   if ("..gt.." %in% names(x)) {
@@ -258,6 +409,25 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..ge.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name >= y$first_name)
+#'                   }
+#'                   return(self$last_name >= self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %ge% james
 #'
 #' @export
 `%ge%` <- function(x, y) {
@@ -273,6 +443,26 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Object.
 #' @return A Boolean value.
+#' @examples
+#' NAME <- new_class(class_name = "NAME")
+#' name <- NAME$instantiate
+#' register_method(NAME,
+#'                 ..init.. = function(first_name, last_name) {
+#'                   self$first_name = first_name
+#'                   self$last_name = last_name
+#'                 })
+#' register_method(NAME,
+#'                 ..ge.. = function(y) {
+#'                   if (self$last_name == y$last_name) {
+#'                     return(self$first_name >= y$first_name)
+#'                   }
+#'                   return(self$last_name >= self$last_name)
+#'                 })
+#'
+#' patrick <- name("Patrick", "Li")
+#' james <- name("James", "Li")
+#' patrick %ge% james
+#'
 #' @export
 `%ge%.bandicoot_oop` <- function(x, y) {
   if ("..ge.." %in% names(x)) {
@@ -290,6 +480,15 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' AGE <- new_class(class_name = "AGE")
+#' age <- AGE$instantiate
+#' register_method(AGE, ..init.. = function(current) self$current = current)
+#' register_method(AGE, ..eq.. = function(y) self$current == y$current)
+#'
+#' patrick <- age(33)
+#' james <- age(33)
+#' patrick %eq% james
 #'
 #' @export
 `%eq%` <- function(x, y) {
@@ -305,6 +504,16 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Object.
 #' @return A Boolean value.
+#' @examples
+#' AGE <- new_class(class_name = "AGE")
+#' age <- AGE$instantiate
+#' register_method(AGE, ..init.. = function(current) self$current = current)
+#' register_method(AGE, ..eq.. = function(y) self$current == y$current)
+#'
+#' patrick <- age(33)
+#' james <- age(33)
+#' patrick %eq% james
+#'
 #' @export
 `%eq%.bandicoot_oop` <- function(x, y) {
   if ("..eq.." %in% names(x)) {
@@ -322,10 +531,19 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' AGE <- new_class(class_name = "AGE")
+#' age <- AGE$instantiate
+#' register_method(AGE, ..init.. = function(current) self$current = current)
+#' register_method(AGE, ..ne.. = function(y) self$current != y$current)
+#'
+#' patrick <- age(33)
+#' james <- age(33)
+#' patrick %ne% james
 #'
 #' @export
 `%ne%` <- function(x, y) {
-  UseMethod("%eq%")
+  UseMethod("%ne%")
 }
 
 #' S3 method of performing the not equals to operator of a
@@ -337,6 +555,16 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Object.
 #' @return A Boolean value.
+#' @examples
+#' AGE <- new_class(class_name = "AGE")
+#' age <- AGE$instantiate
+#' register_method(AGE, ..init.. = function(current) self$current = current)
+#' register_method(AGE, ..ne.. = function(y) self$current != y$current)
+#'
+#' patrick <- age(33)
+#' james <- age(33)
+#' patrick %ne% james
+#'
 #' @export
 `%ne%.bandicoot_oop` <- function(x, y) {
   if ("..ne.." %in% names(x)) {
@@ -354,6 +582,25 @@ repr.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param ... Additional arguments needed for building an iterator.
 #' @return An iterator.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..iter.. = function(...) {
+#'                   split(data.frame(name = self$name, age = self$age),
+#'                         1:length(self$name))
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' for (person in iter(good_company)) {
+#'   print(person)
+#' }
 #'
 #' @export
 iter <- function(x, ...) {
@@ -369,6 +616,26 @@ iter <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param ... Additional arguments needed for building an iterator.
 #' @return An iterator.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..iter.. = function(...) {
+#'                   split(data.frame(name = self$name, age = self$age),
+#'                         1:length(self$name))
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' for (person in iter(good_company)) {
+#'   print(person)
+#' }
+#'
 #' @export
 iter.bandicoot_oop <- function(x, ...) {
   if ("..iter.." %in% names(x)) {
@@ -386,6 +653,20 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..contains.. = function(y) y %in% self$name)
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' good_company %contains% "patrick"
 #'
 #' @export
 `%contains%` <- function(x, y) {
@@ -402,6 +683,21 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Another object.
 #' @return A Boolean value.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..contains.. = function(y) y %in% self$name)
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' good_company %contains% "patrick"
+#'
 #' @export
 `%contains%.bandicoot_oop` <- function(x, y) {
   if ("..contains.." %in% names(x)) {
@@ -419,6 +715,26 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..add.. = function(y) {
+#'                   company(c(self$name, y$name),
+#'                           c(self$age, y$age))
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' bad_company <- company(c("pat", "jam"),
+#'                        c(3, 4))
+#' new_company <- good_company %+% bad_company
+#' new_company$name
 #'
 #' @export
 `%+%` <- function(x, y) {
@@ -435,6 +751,27 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..add.. = function(y) {
+#'                   company(c(self$name, y$name),
+#'                           c(self$age, y$age))
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' bad_company <- company(c("pat", "jam"),
+#'                        c(3, 4))
+#' new_company <- good_company %+% bad_company
+#' new_company$name
+#'
 #' @export
 `%+%.bandicoot_oop` <- function(x, y) {
   if ("..add.." %in% names(x)) {
@@ -451,6 +788,26 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..iadd.. = function(y) {
+#'                   self$name <- c(self$name, y$name)
+#'                   self$age <- c(self$age, y$age)
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' bad_company <- company(c("pat", "jam"),
+#'                        c(3, 4))
+#' good_company %+=% bad_company
+#' good_company$name
 #'
 #' @export
 `%+=%` <- function(x, y) {
@@ -467,6 +824,27 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..iadd.. = function(y) {
+#'                   self$name <- c(self$name, y$name)
+#'                   self$age <- c(self$age, y$age)
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' bad_company <- company(c("pat", "jam"),
+#'                        c(3, 4))
+#' good_company %+=% bad_company
+#' good_company$name
+#'
 #' @export
 `%+=%.bandicoot_oop` <- function(x, y) {
   if ("..iadd.." %in% names(x)) {
@@ -483,6 +861,24 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..sub.. = function(y) {
+#'                   company(self$name[self$name != y],
+#'                           self$age[self$name != y])
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' new_company <- good_company %-% "patrick"
+#' new_company$name
 #'
 #' @export
 `%-%` <- function(x, y) {
@@ -499,6 +895,25 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..sub.. = function(y) {
+#'                   company(self$name[self$name != y],
+#'                           self$age[self$name != y])
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' new_company <- good_company %-% "patrick"
+#' new_company$name
+#'
 #' @export
 `%-%.bandicoot_oop` <- function(x, y) {
   if ("..sub.." %in% names(x)) {
@@ -515,6 +930,24 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x Object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..isub.. = function(y) {
+#'                   self$age <- self$age[self$name != y]
+#'                   self$name <- self$name[self$name != y]
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' good_company %-=% "patrick"
+#' good_company$name
 #'
 #' @export
 `%-=%` <- function(x, y) {
@@ -531,6 +964,25 @@ iter.bandicoot_oop <- function(x, ...) {
 #' @param x `bandicoot_oop` object.
 #' @param y Another object.
 #' @return Depends on the method.
+#' @examples
+#' COMPANY <- new_class(class_name = "COMPANY")
+#' company <- COMPANY$instantiate
+#' register_method(COMPANY,
+#'                 ..init.. = function(name, age) {
+#'                   self$name <- name
+#'                   self$age <- age
+#'                 })
+#' register_method(COMPANY,
+#'                 ..isub.. = function(y) {
+#'                   self$age <- self$age[self$name != y]
+#'                   self$name <- self$name[self$name != y]
+#'                 })
+#'
+#' good_company <- company(c("patrick", "james"),
+#'                         c(33, 34))
+#' good_company %-=% "patrick"
+#' good_company$name
+#'
 #' @export
 `%-=%.bandicoot_oop` <- function(x, y) {
   if ("..isub.." %in% names(x)) {

@@ -1,14 +1,14 @@
 Package: bandicoot
 Type: Package
-Title: Tools for building light-weight Python-like object oriented system
+Title: Light-Weight Python-Like Object-Oriented System
 Version: 1.0.0
 Authors@R: 
     person(given = "Weihao",
            family = "Li",
-           role = c("aut", "cre"),
-           email = "patrick.li@monash.edu",
+           role = c("aut", "cre", "cph"),
+           email = "llreczx@gmail.com",
            comment = c(ORCID = "0000-0003-4959-106X"))
-Description: Bandicoot is a light-weight object-oriented system with Python-like syntax. It supports multiple inheritances and incorporates a Python-like method resolution order, empowering users to implement dynamic dispatch when needed.
+Description: A light-weight object-oriented system with Python-like syntax which supports multiple inheritances and incorporates a Python-like method resolution order.
 License: MIT + file LICENSE
 URL: https://tengmcing.github.io/bandicoot/, https://github.com/TengMCing/bandicoot/
 BugReports: https://github.com/TengMCing/bandicoot/issues

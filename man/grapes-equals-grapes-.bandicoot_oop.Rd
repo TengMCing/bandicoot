@@ -20,3 +20,23 @@ This function performs the in-place subtraction operator using the
 \code{..iadd..()} method.
 If it is not applicable, error will be raised.
 }
+\examples{
+COMPANY <- new_class(class_name = "COMPANY")
+company <- COMPANY$instantiate
+register_method(COMPANY,
+                ..init.. = function(name, age) {
+                  self$name <- name
+                  self$age <- age
+                })
+register_method(COMPANY,
+                ..isub.. = function(y) {
+                  self$age <- self$age[self$name != y]
+                  self$name <- self$name[self$name != y]
+                })
+
+good_company <- company(c("patrick", "james"),
+                        c(33, 34))
+good_company \%-=\% "patrick"
+good_company$name
+
+}
