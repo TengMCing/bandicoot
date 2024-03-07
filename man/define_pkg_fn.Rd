@@ -15,7 +15,7 @@ define_pkg_fn(pkg, ...)
 No return value, called for side effects.
 }
 \description{
-This function loads functions from package namespaces via \code{::} and
+This function loads functions from package namespaces and
 assigns them to the preferred function names in the current environment.
 }
 \details{
