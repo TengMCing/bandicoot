@@ -77,6 +77,33 @@
 <p>An iterator.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">COMPANY</span> <span class="op">&lt;-</span> <span class="fu"><a href="new_class.html">new_class</a></span><span class="op">(</span>class_name <span class="op">=</span> <span class="st">"COMPANY"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">company</span> <span class="op">&lt;-</span> <span class="va">COMPANY</span><span class="op">$</span><span class="va">instantiate</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="register_method.html">register_method</a></span><span class="op">(</span><span class="va">COMPANY</span>,</span></span>
+<span class="r-in"><span>                ..init.. <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">name</span>, <span class="va">age</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>                  <span class="va">self</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="va">name</span></span></span>
+<span class="r-in"><span>                  <span class="va">self</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="va">age</span></span></span>
+<span class="r-in"><span>                <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="register_method.html">register_method</a></span><span class="op">(</span><span class="va">COMPANY</span>,</span></span>
+<span class="r-in"><span>                ..iter.. <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>                  <span class="fu"><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">name</span>, age <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                        <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">self</span><span class="op">$</span><span class="va">name</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">good_company</span> <span class="op">&lt;-</span> <span class="fu">company</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"patrick"</span>, <span class="st">"james"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">33</span>, <span class="fl">34</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">person</span> <span class="kw">in</span> <span class="fu">iter</span><span class="op">(</span><span class="va">good_company</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">person</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      name age</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 patrick  33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    name age</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 james  34</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

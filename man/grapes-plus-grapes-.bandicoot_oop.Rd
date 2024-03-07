@@ -20,3 +20,25 @@ This function performs the addition operator using the
 \code{..add..()} method.
 If it is not applicable, error will be raised.
 }
+\examples{
+COMPANY <- new_class(class_name = "COMPANY")
+company <- COMPANY$instantiate
+register_method(COMPANY,
+                ..init.. = function(name, age) {
+                  self$name <- name
+                  self$age <- age
+                })
+register_method(COMPANY,
+                ..add.. = function(y) {
+                  company(c(self$name, y$name),
+                          c(self$age, y$age))
+                })
+
+good_company <- company(c("patrick", "james"),
+                        c(33, 34))
+bad_company <- company(c("pat", "jam"),
+                       c(3, 4))
+new_company <- good_company \%+\% bad_company
+new_company$name
+
+}

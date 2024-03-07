@@ -1,5 +1,14 @@
 ## R CMD check results
+* local mac OS X: release
+* local Ubuntu Linux: release
+* win-builder: devel, release, oldrel
+* R-hub (Ubuntu Linux): devel, release
 
-0 errors | 0 warnings | 1 note
+## R CMD check results
+
+There were no ERRORs or WARNINGs.
+
+## Note
 
 * This is a new release.
+

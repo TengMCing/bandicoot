@@ -20,3 +20,12 @@ this should look like a valid R expression that could be used to recreate
 an object wit the same value (given an appropriate environment). This
 description is copied from the python documentation.
 }
+\examples{
+EMAIL <- new_class(class_name = "EMAIL")
+email <- EMAIL$instantiate
+register_method(EMAIL, ..init.. = function(address) self$address = address)
+
+patrick <- email('patrick@test.com')
+repr(patrick)
+
+}

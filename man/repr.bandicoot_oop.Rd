@@ -20,3 +20,12 @@ This function computes the "official" string representation of a
 \code{bandicoot_oop} object using the \code{..repr..()} method.
 If it is not applicable, error will be raised.
 }
+\examples{
+EMAIL <- new_class(class_name = "EMAIL")
+email <- EMAIL$instantiate
+register_method(EMAIL, ..init.. = function(address) self$address = address)
+
+patrick <- email('patrick@test.com')
+repr(patrick)
+
+}

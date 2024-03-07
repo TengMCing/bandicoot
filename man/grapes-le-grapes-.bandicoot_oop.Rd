@@ -19,3 +19,24 @@ A Boolean value.
 This function performs the less or equals operator using the \code{..le..()} method.
 If it is not applicable, error will be raised.
 }
+\examples{
+NAME <- new_class(class_name = "NAME")
+name <- NAME$instantiate
+register_method(NAME,
+                ..init.. = function(first_name, last_name) {
+                  self$first_name = first_name
+                  self$last_name = last_name
+                })
+register_method(NAME,
+                ..le.. = function(y) {
+                  if (self$last_name == y$last_name) {
+                    return(self$first_name <= y$first_name)
+                  }
+                  return(self$last_name <= self$last_name)
+                })
+
+patrick <- name("Patrick", "Li")
+james <- name("James", "Li")
+patrick \%le\% james
+
+}

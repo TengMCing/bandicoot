@@ -17,3 +17,24 @@ An iterator.
 \description{
 Build an iterator
 }
+\examples{
+COMPANY <- new_class(class_name = "COMPANY")
+company <- COMPANY$instantiate
+register_method(COMPANY,
+                ..init.. = function(name, age) {
+                  self$name <- name
+                  self$age <- age
+                })
+register_method(COMPANY,
+                ..iter.. = function(...) {
+                  split(data.frame(name = self$name, age = self$age),
+                        1:length(self$name))
+                })
+
+good_company <- company(c("patrick", "james"),
+                        c(33, 34))
+for (person in iter(good_company)) {
+  print(person)
+}
+
+}

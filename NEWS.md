@@ -5,3 +5,7 @@
 # bandicoot 0.2.0
 
 * Introduce `super()` to the package.
+
+# bandicoot 1.0.0
+
+* First release
