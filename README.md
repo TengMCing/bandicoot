@@ -22,6 +22,12 @@ This system is inspired by the OOP systems implemented in
 
 ## Installation
 
+Install the released version from CRAN with
+
+``` r
+install.packages("bandicoot")
+```
+
 Install the development version from [GitHub](https://github.com/) with:
 
 ``` r
