@@ -802,3 +802,32 @@ as_bandicoot_oop <- function(env, ..class.. = NULL, ..type.. = NULL, ..instantia
 
   return(obj)
 }
+
+# make_instantiator -------------------------------------------------------
+
+make_instantiator <- function(class_env, env = parent.frame()) {
+  if (!is_bandicoot_oop(class_env)) {
+    stop("`class_env` is not a `bandicoot_oop` object!")
+  }
+
+  new_formals <- formals(class_env$..new..)
+  init_formals <- formals(class_env$..init..)
+
+  commons <- intersect(names(new_formals), names(init_formals))
+  if (length(commons) > 0) {
+    commons <- paste0("`", commons, "`", collapse = ", ")
+    stop(paste0("Formal argument ", commons, " matched by multiple actual arguments! Please check your `..new..` and `..init..` method."))
+  }
+
+  result_formals <- c(init_formals, new_formals)
+
+  result_names <- names(result_formals)
+
+  result_call <- lapply(result_names, function(name) as.symbol(name))
+  result_call <- c(bquote(.(substitute(class_env))$instantiate), result_call)
+  names(result_call) <- c("constructor", result_names)
+  result_call <- as.call(result_call)
+
+  as.function(c(result_formals, result_call),
+              envir = env)
+}
