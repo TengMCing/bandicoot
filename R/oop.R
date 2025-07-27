@@ -805,9 +805,46 @@ as_bandicoot_oop <- function(env, ..class.. = NULL, ..type.. = NULL, ..instantia
 
 # make_instantiator -------------------------------------------------------
 
-make_instantiator <- function(class_env, env = parent.frame()) {
+
+#' Make convenient wrapper for instantiation method
+#'
+#' This function creates a instantiator wrapper for a class by inspecting
+#' the required arguments of its `..new..` and `..init..` methods. It
+#' captures the class name from the provided argument, so it is best
+#' invoked directly, e.g., `my_class <- make_instantiator(MY_CLASS)`.
+#'
+#' Care must be taken when either `..new..` or `..init..` includes `...` as a
+#' formal argument, as this may lead to unexpected behavior in argument passing
+#' within the wrapper function. After creating the wrapper, it is recommended to
+#' reorder or modify the formals as needed using [formals()].
+#'
+#' @param class_env Environment. A class environment.
+#' @param env Environment. Environment in which the wrapper should be defined.
+#' @param new_defaults alist. New defaults to be used in the formal argument of
+#' the wrapper. Formal argument not presented in `..new..` or `..init..` will
+#' be ignored and a warning will be raised. See also [alist()].
+#' @return A wrapper function.
+#'
+#' @examples
+#'
+#' MYCLASS <- new_class(class_name = "MYCLASS")
+#' register_method(MYCLASS, ..init.. = function(name) self$name <- name)
+#' myclass <- make_instantiator(MYCLASS)
+#' myclass
+#'
+#' myclass("Mike")$name
+#'
+#' myclass_2 <- make_instantiator(MYCLASS, new_defaults = alist(name = "MIKE"))
+#' myclass_2()$name
+#'
+#' @export
+make_instantiator <- function(class_env, env = parent.frame(), new_defaults = alist()) {
   if (!is_bandicoot_oop(class_env)) {
     stop("`class_env` is not a `bandicoot_oop` object!")
+  }
+
+  if (class_env$..instantiated..) {
+    stop("`class_env` is not a class!")
   }
 
   new_formals <- formals(class_env$..new..)
@@ -823,11 +860,20 @@ make_instantiator <- function(class_env, env = parent.frame()) {
 
   result_names <- names(result_formals)
 
+  for (default_name in names(new_defaults)) {
+    if (!default_name %in% result_names) {
+      warning(paste0("Unmatched formal argument ", default_name, " will be ignored!"))
+    } else {
+      result_formals[[default_name]] <- new_defaults[[default_name]]
+    }
+  }
+
   result_call <- lapply(result_names, function(name) as.symbol(name))
   result_call <- c(bquote(.(substitute(class_env))$instantiate), result_call)
   names(result_call) <- c("constructor", result_names)
   result_call <- as.call(result_call)
 
-  as.function(c(result_formals, result_call),
-              envir = env)
+  wrapper <- as.function(c(result_formals, quote({})), envir = env)
+  body(wrapper) <- substitute({result_call}, list(result_call = result_call))
+  return(wrapper)
 }
