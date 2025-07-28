@@ -862,7 +862,7 @@ make_instantiator <- function(class_env, env = parent.frame(), new_defaults = al
 
   for (default_name in names(new_defaults)) {
     if (!default_name %in% result_names) {
-      warning(paste0("Unmatched formal argument ", default_name, " will be ignored!"))
+      warning(paste0("Unmatched formal argument `", default_name, "` will be ignored!"))
     } else {
       result_formals[[default_name]] <- new_defaults[[default_name]]
     }
