@@ -1,10 +1,9 @@
-pandoc: 2.19.2
-pkgdown: 2.0.6
+pandoc: '3.2'
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   Introduction-to-bandicoot: Introduction-to-bandicoot.html
-last_built: 2024-03-09T12:17Z
+last_built: 2025-07-28T05:44Z
 urls:
   reference: https://tengmcing.github.io/bandicoot/reference
   article: https://tengmcing.github.io/bandicoot/articles
-

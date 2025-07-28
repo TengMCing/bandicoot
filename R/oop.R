@@ -820,7 +820,7 @@ as_bandicoot_oop <- function(env, ..class.. = NULL, ..type.. = NULL, ..instantia
 #'
 #' @param class_env Environment. A class environment.
 #' @param env Environment. Environment in which the wrapper should be defined.
-#' @param new_defaults alist. New defaults to be used in the formal argument of
+#' @param new_defaults Alist. New defaults to be used in the formal argument of
 #' the wrapper. Formal argument not presented in `..new..` or `..init..` will
 #' be ignored and a warning will be raised. See also [alist()].
 #' @return A wrapper function.

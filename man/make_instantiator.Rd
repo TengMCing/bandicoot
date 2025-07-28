@@ -11,7 +11,7 @@ make_instantiator(class_env, env = parent.frame(), new_defaults = alist())
 
 \item{env}{Environment. Environment in which the wrapper should be defined.}
 
-\item{new_defaults}{alist. New defaults to be used in the formal argument of
+\item{new_defaults}{Alist. New defaults to be used in the formal argument of
 the wrapper. Formal argument not presented in \code{..new..} or \code{..init..} will
 be ignored and a warning will be raised. See also \code{\link[=alist]{alist()}}.}
 }

@@ -15,6 +15,7 @@ reference:
   - copy_attr
   - use_method
   - super
+  - make_instantiator
   - is_bandicoot_oop
   - as_bandicoot_oop
 - title: "Portals to class instantiate methods"

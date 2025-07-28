@@ -1,7 +1,7 @@
 Package: bandicoot
 Type: Package
 Title: Light-Weight 'python'-Like Object-Oriented System
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(given = "Weihao",
            family = "Li",
