@@ -1,3 +1,4 @@
+
 # bandicoot 0.1.0
 
 * Added a `NEWS.md` file to track changes to the package.
@@ -9,3 +10,7 @@
 # bandicoot 1.0.0
 
 * First release
+
+# bandicoot 1.0.1
+
+* Introduce `make_instantiator()` to the package. This is a convenient function to make wrapper for instantiation method.
