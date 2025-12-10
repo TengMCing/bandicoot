@@ -79,11 +79,11 @@ DEMO$..class..
 
 ``` r
 DEMO$..dir..()
-#>  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         
-#>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        
-#>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        
-#> [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."
-#> [17] "..init.."         "..class_tree.."   "instantiate"
+#>  [1] "..doc_pkg.."      "..mro.."          "..bases.."        "..str.."         
+#>  [5] "..len.."          "..class.."        "..new.."          "has_attr"        
+#>  [9] "del_attr"         "..repr.."         "set_attr"         "..type.."        
+#> [13] "get_attr"         "..dir.."          "..methods.."      "..method_env.."  
+#> [17] "..instantiated.." "..init.."         "..class_tree.."   "instantiate"
 DEMO$..methods..()
 #>  [1] "..str.."     "..len.."     "..new.."     "has_attr"    "del_attr"   
 #>  [6] "..repr.."    "set_attr"    "get_attr"    "..dir.."     "..methods.."
