@@ -92,18 +92,18 @@ Attributes or methods that don't want to be copied can be specified in
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">BASE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..str.."          "..len.."          "..class.."       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..new.."          "..repr.."         "del_attr"         "has_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "set_attr"         "get_attr"         "..type.."         "..dir.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..methods.."      "..method_env.."   "..init.."         "..instantiated.."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..class_tree.."   "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..doc_pkg.."      "..mro.."          "..str.."          "..len.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..class.."        "..new.."          "..repr.."         "del_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "has_attr"         "set_attr"         "get_attr"         "..type.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..dir.."          "..methods.."      "..method_env.."   "..init.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..instantiated.." "..class_tree.."   "instantiate"     </span>
 <span class="r-in"><span><span class="fu">copy_attr</span><span class="op">(</span><span class="va">test</span>, <span class="va">BASE</span>, avoid <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"..method_env.."</span>, <span class="st">"..init_call.."</span>, <span class="st">"..dir.."</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..str.."          "..len.."          "..class.."       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..new.."          "has_attr"         "del_attr"         "..repr.."        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "set_attr"         "..type.."         "get_attr"         "..methods.."     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..method_env.."   "..instantiated.." "..init.."         "..class_tree.."  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..doc_pkg.."      "..mro.."          "..str.."          "..len.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..methods.."      "..method_env.."   "..instantiated.." "..init.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..class_tree.."   "instantiate"     </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

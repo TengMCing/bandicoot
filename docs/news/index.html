@@ -51,6 +51,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="bandicoot-101">bandicoot 1.0.1<a class="anchor" aria-label="anchor" href="#bandicoot-101"></a></h2>
 <ul><li>Introduce <code><a href="../reference/make_instantiator.html">make_instantiator()</a></code> to the package. This is a convenient function to make wrapper for instantiation method.</li>
+<li>Add a message in <code><a href="../reference/print.bandicoot_oop.html">print.bandicoot_oop()</a></code> pointing users to the documentation.</li>
+<li>Add a new argument <code>doc_pkg</code> to <code><a href="../reference/new_class.html">new_class()</a></code> for specifying the Name of the package providing the class documentation, referenced as <code>?{doc_pkg}::{class}</code>, where <a href="http://www.stats.ox.ac.uk/pub/MASS4/" class="external-link">class</a> is the class name. A new attribute <code>..doc_pkg..</code> is added to store this information.</li>
+<li>
+<code>BASE</code> is now constructed with <code>doc_pkg = "bandicoot"</code>.</li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

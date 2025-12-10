@@ -257,6 +257,10 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
 #' be used when you don't want to inherited from [BASE], or you want to define
 #' your own base object class. Will be ignored if `...` is not empty. If `...`
 #' is empty and `empty_class == FALSE`, [BASE] will be used as the parent class.
+#' @param doc_pkg Character. Name of the package providing the class documentation,
+#' referenced as `?{doc_pkg}::{class}`, where `{class}` is the class name.
+#' Used to provide a hint to the user for finding the object's documentation
+#' when the object is printed.
 #' @return A class environment with S3 class "bandicoot_oop".
 #'
 #' @examples
@@ -270,7 +274,7 @@ register_method <- function(env, ..., container_name = "..method_env..", self_na
 #' names(TEST)
 #'
 #' @export
-new_class <- function(..., env = new.env(parent = parent.frame()), class_name = NULL, empty_class = FALSE) {
+new_class <- function(..., env = new.env(parent = parent.frame()), class_name = NULL, empty_class = FALSE, doc_pkg = NULL) {
 
   # Class should has a name
   if (is.null(class_name)) stop("`class_name` is null!")
@@ -323,6 +327,9 @@ new_class <- function(..., env = new.env(parent = parent.frame()), class_name = 
   env$..class.. <- unique(c(class_name, env$..class..))
   env$..type.. <- class_name
   env$..instantiated.. <- FALSE
+
+  # Set package doc location
+  env$..doc_pkg.. <- doc_pkg
 
   # Set S3 class
   class(env) <- "bandicoot_oop"
@@ -565,7 +572,7 @@ class_BASE <- function(env = new.env(parent = parent.frame())) {
   self <- NULL
 
   # Define a new class, empty_class = TRUE because we want to define a base object class
-  new_class(env = env, class_name = "BASE", empty_class = TRUE)
+  new_class(env = env, class_name = "BASE", empty_class = TRUE, doc_pkg = "bandicoot")
 
   # Default instantiate method
   instantiate_ <- function(..., env = new.env(parent = parent.frame()), init_call = sys.call()) {

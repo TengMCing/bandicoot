@@ -8,7 +8,8 @@ new_class(
   ...,
   env = new.env(parent = parent.frame()),
   class_name = NULL,
-  empty_class = FALSE
+  empty_class = FALSE,
+  doc_pkg = NULL
 )
 }
 \arguments{
@@ -22,6 +23,11 @@ new_class(
 be used when you don't want to inherited from \link{BASE}, or you want to define
 your own base object class. Will be ignored if \code{...} is not empty. If \code{...}
 is empty and \code{empty_class == FALSE}, \link{BASE} will be used as the parent class.}
+
+\item{doc_pkg}{Character. Name of the package providing the class documentation,
+referenced as \verb{?\{doc_pkg\}::\{class\}}, where \code{{class}} is the class name.
+Used to provide a hint to the user for finding the object's documentation
+when the object is printed.}
 }
 \value{
 A class environment with S3 class "bandicoot_oop".
