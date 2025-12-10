@@ -63,6 +63,10 @@ environments.
 \item \link{BASE$..class..}
 \item \link{BASE$..class_tree..}
 }
+\item D:
+\itemize{
+\item \link{BASE$..doc_pkg..}
+}
 \item I:
 \itemize{
 \item \link{BASE$..instantiated..}

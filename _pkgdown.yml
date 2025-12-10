@@ -32,6 +32,7 @@ reference:
   - BASE$..class..
   - BASE$..class_tree..
   - BASE$..bases..
+  - BASE$..doc_pkg..
   - BASE$..mro..
   - BASE$..method_env..
   - BASE$..instantiated..

@@ -50,7 +50,8 @@ parent classes.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html" class="external-link">new.env</a></span><span class="op">(</span>parent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  class_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  empty_class <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  empty_class <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  doc_pkg <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -76,6 +77,13 @@ be used when you don't want to inherited from <a href="BASE.html">BASE</a>, or y
 your own base object class. Will be ignored if <code>...</code> is not empty. If <code>...</code>
 is empty and <code>empty_class == FALSE</code>, <a href="BASE.html">BASE</a> will be used as the parent class.</p></dd>
 
+
+<dt id="arg-doc-pkg">doc_pkg<a class="anchor" aria-label="anchor" href="#arg-doc-pkg"></a></dt>
+<dd><p>Character. Name of the package providing the class documentation,
+referenced as <code>?{doc_pkg}::{class}</code>, where <code>{class}</code> is the class name.
+Used to provide a hint to the user for finding the object's documentation
+when the object is printed.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -98,11 +106,11 @@ If <code>...</code> is empty and <code>empty_class == FALSE</code>,
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;MYCLASS class&gt; </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">MYCLASS</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..init.."         "..class_tree.."   "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..doc_pkg.."      "..mro.."          "..bases.."        "..str.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..len.."          "..class.."        "..new.."          "has_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "del_attr"         "..repr.."         "set_attr"         "..type.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "get_attr"         "..dir.."          "..methods.."      "..method_env.."  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..instantiated.." "..init.."         "..class_tree.."   "instantiate"     </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Inhert from BASE class</span></span></span>
 <span class="r-in"><span><span class="va">TEST</span> <span class="op">&lt;-</span> <span class="fu">new_class</span><span class="op">(</span><span class="va">BASE</span>, class_name <span class="op">=</span> <span class="st">"TEST"</span><span class="op">)</span></span></span>
@@ -110,11 +118,11 @@ If <code>...</code> is empty and <code>empty_class == FALSE</code>,
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── &lt;TEST class&gt; </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">TEST</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..mro.."          "..bases.."        "..str.."          "..len.."         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..class.."        "..new.."          "has_attr"         "del_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "..repr.."         "set_attr"         "..type.."         "get_attr"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "..dir.."          "..methods.."      "..method_env.."   "..instantiated.."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..init.."         "..class_tree.."   "instantiate"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "..doc_pkg.."      "..mro.."          "..bases.."        "..str.."         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "..len.."          "..class.."        "..new.."          "has_attr"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "del_attr"         "..repr.."         "set_attr"         "..type.."        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "get_attr"         "..dir.."          "..methods.."      "..method_env.."  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "..instantiated.." "..init.."         "..class_tree.."   "instantiate"     </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
