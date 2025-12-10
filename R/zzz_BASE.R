@@ -47,6 +47,8 @@ BASE <- new.env()
 #' * C:
 #'    * [BASE$..class..]
 #'    * [BASE$..class_tree..]
+#' * D:
+#'    * [BASE$..doc_pkg..]
 #' * I:
 #'    * [BASE$..instantiated..]
 #' * M:
@@ -191,6 +193,21 @@ BASE$..method_env..
 #' test <- BASE$instantiate()
 #' test$..instantiated..
 BASE$..instantiated..
+
+#' Class documentation location
+#'
+#' @name BASE$..doc_pkg..
+#'
+#' @description Name of the package providing the class documentation,
+#' referenced as `?{doc_pkg}::{class}`, where `{class}` is the class name.
+#'
+#' @examples
+#'
+#' BASE$..doc_pkg..
+#'
+#' DEMO <- new_class(BASE, class_name = "DEMO", doc_pkg = "test")
+#' DEMO$..doc_pkg..
+BASE$..doc_pkg..
 
 #' All names in the class or instance environment
 #'
