@@ -14,3 +14,4 @@
 # bandicoot 1.0.1
 
 * Introduce `make_instantiator()` to the package. This is a convenient function to make wrapper for instantiation method.
+* Add a message in `print.bandicoot_oop()` pointing users to the documentation.

@@ -82,6 +82,8 @@
 print.bandicoot_oop <- function(x, ...) {
   if ("..str.." %in% names(x)) {
     cli::cli_h3(x$..str..())
+    help_code <- paste0("?", x$..type..)
+    cli::cli_alert_info("See {cli::style_underline(cli::col_yellow(help_code))} for the documentation.")
   } else {
     cli::cli_h3("<unknown object>")
   }
